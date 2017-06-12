@@ -6,6 +6,11 @@ import Message from '@/components/Message'
 import My from '@/components/My'
 import Write from '@/components/Write'
 import Aggrement from '@/components/Aggrement'
+import Set from '@/components/Set'
+import Register from '@/components/Register'
+import Forget from '@/components/Forget'
+import Userinfo from '@/components/Userinfo'
+import Login from '@/components/Login'
 
 Vue.use(Router)
 
@@ -40,6 +45,31 @@ export default new Router({
       path: '/Aggrement',
       name: 'Aggrement',
       component: Aggrement
+    },
+    {
+      path: '/Set',
+      name: 'Set',
+      component: Set
+    },
+    {
+      path: '/Register',
+      name: 'Register',
+      component: Register
+    },
+    {
+      path: '/Forget',
+      name: 'Forget',
+      component: Forget
+    },
+    {
+      path: '/Userinfo',
+      name: 'Userinfo',
+      component: Userinfo
+    },
+    {
+      path: '/Login',
+      name: 'Login',
+      component: Login
     }
   ]
 })
