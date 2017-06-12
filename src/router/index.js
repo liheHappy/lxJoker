@@ -20,7 +20,7 @@ export default new Router({
       component: Index,
       children:[
         {
-          path: '/Text',
+          path: '/',
           name: 'Text',
           component: Text
         },
