@@ -88,4 +88,7 @@ export default {
   background: #dcd9cf;
   color: #493d32;
 }
+.mint-tabbar{
+  position: fixed;
+}
 </style>
