@@ -6,37 +6,28 @@
 		  	<span class="iconfont icon-shezhi"></span>
 		  </mt-button>
 		</mt-header>
-	  <div class="myInfo">
-	  	<div class="myHead">
-	  		<p>用户头像</p>
+	  <div class="am-g">
+	  	<div class="am-u-sm-4">
+	  		<a href="" class="am-icon-btn am-icon-user"></a>
 	  	</div>
-	  	<div class="myBody">
-	  		dsads 
+	  	<div class="am-u-sm-8">
+	  		<a href="" class="am-u-sm-4">
+	  			<span>0</span>
+	  			<span>粉丝</span>
+	  		</a>
+	  		<a href="" class="am-u-sm-4">
+	  			<span>0</span>
+	  			<span>关注</span>
+	  		</a>
+	  		<a href="" class="am-u-sm-4">
+	  			<span>0</span>
+	  			<span>积分</span>
+	  		</a>
+	  		<mt-button type="danger" size="large" plain>立即登录</mt-button>
 	  	</div>
 	  </div>
-	  <div class="myNav">
-	  	<mt-navbar v-model="selected">
-			  <mt-tab-item id="1">投稿</mt-tab-item>
-			  <mt-tab-item id="2">直播</mt-tab-item>
-			  <mt-tab-item id="3">收藏</mt-tab-item>
-			  <mt-tab-item id="4">评论</mt-tab-item>
-			</mt-navbar>
-			<!-- tab-container -->
-			<mt-tab-container v-model="selected">
-			  <mt-tab-container-item id="1">
-			    <mt-cell v-for="n in 5" :title="'内容 ' + n" />
-			  </mt-tab-container-item>
-			  <mt-tab-container-item id="2">
-			    <mt-cell v-for="n in 4" :title="'测试 ' + n" />
-			  </mt-tab-container-item>
-			  <mt-tab-container-item id="3">
-			    <mt-cell v-for="n in 6" :title="'选项 ' + n" />
-			  </mt-tab-container-item>
-			  <mt-tab-container-item id="4">
-			    <mt-cell v-for="n in 6" :title="'选项 ' + n" />
-			  </mt-tab-container-item>
-			</mt-tab-container>
-	  </div>
+	  <hx-my-tabbar></hx-my-tabbar>
+	  <router-view></router-view>
   </div>
 </template>
 
@@ -47,21 +38,85 @@ export default {
 		return {
 			selected:"1"
 		}
+	},
+	components:{
+		"hx-my-tabbar":{
+			template:`
+				<ul class="am-nav am-nav-pills am-nav-justify">
+				  <li>
+				  	<router-link to="/My"><span class="lhactive" @click="toggleClass">投稿</span></router-link>
+				  </li>
+				  <li>
+				  	<router-link to="/Playing"><span @click="toggleClass">直播</span></router-link>
+				  </li>
+				  <li>
+				  	<router-link to="/Collect"><span @click="toggleClass">收藏</span></router-link>
+				  </li>
+				  <li>
+				  	<router-link to="/Comment"><span @click="toggleClass">评论</span></router-link>
+				  </li>
+				</ul>
+			`,
+			methods:{
+				toggleClass:function(event){
+					if(event.target.className=="lhactive"){
+					}else{
+						var arr=document.querySelectorAll(".am-nav li span");
+						for(var i=0;i<4;i++){
+							arr[i].className="";
+						}
+						event.target.className="lhactive";
+					}
+				}
+			}
+		}
 	}
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
-	.message .myInfo{
-		height: 10rem;
+<style scope>
+	.am-g{
+		margin-top: 1rem;
+		margin-bottom: 1rem;
 	}
-	.message .myInfo .myHead{
-		width: 8rem;
-		float: left;
+	.am-icon-btn{
+		width: 100px;
+    height: 100px;
+    font-size: 80px;
+    line-height: 90px;
 	}
-	.message .myInfo .myBody{
-		float: left;
+	.am-u-sm-8 .am-u-sm-4{
+		margin-bottom: 1rem;
 	}
-	
+	.am-u-sm-8 .am-u-sm-4 span{
+		display: block;
+		text-align: center;
+		color: black;
+	}
+	.am-u-sm-8 .mint-button{
+		height: 3rem;
+		border: 1px solid hotpink;
+    color: hotpink;
+	}
+	.am-nav.am-nav-pills.am-nav-justify{
+		background:#dcd9cf;
+	}
+	.am-nav.am-nav-pills.am-nav-justify li{
+		text-align: center;
+		height: 40px;
+		line-height: 40px;
+	}
+	.am-nav.am-nav-pills.am-nav-justify>li>a{
+		color: #874c0d;
+	}
+	.am-nav.am-nav-pills.am-nav-justify>li>a:hover{
+		background: none;
+	}
+	.lhactive{
+		border-bottom:2px solid #493d32;
+		margin-bottom: 1px;
+		display: inline-block; 
+	}
 </style>
