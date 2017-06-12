@@ -7,7 +7,8 @@ import Mint from 'mint-ui'
 import { Tabbar,TabItem,Header,TabContainer,TabContainerItem,Button,Swipe, SwipeItem } from 'mint-ui';
 import 'mint-ui/lib/style.css'
 import 'amazeui/dist/css/amazeui.min.css'
-import 'amazeui/dist/js/amazeui.min.js';
+import 'amazeui/dist/js/amazeui.min.js'
+import 'jquery/dist/jquery.min.js'
 import router from './router'
 
 Vue.component(Tabbar.name, Tabbar);
