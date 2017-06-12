@@ -6,7 +6,9 @@ import Hot from './Hot'
 import Mint from 'mint-ui'
 import { Tabbar,TabItem,Header,TabContainer,TabContainerItem,Button,Swipe, SwipeItem } from 'mint-ui';
 import 'mint-ui/lib/style.css'
-
+import 'amazeui/dist/css/amazeui.min.css'
+import 'amazeui/dist/js/amazeui.min.js';
+import router from './router'
 
 Vue.component(Tabbar.name, Tabbar);
 Vue.component(TabItem.name, TabItem);
@@ -20,8 +22,6 @@ Vue.component(SwipeItem.name, SwipeItem);
 
 Vue.use(Mint);
 
-import router from './router'
-
 
 Vue.config.productionTip = false
 
@@ -30,10 +30,5 @@ new Vue({
   el: '#app',
   router,
   template: '<Hot/>',
-  components: { 
-  	Hot,Tabbar,TabItem,Header,TabContainer,TabContainerItem,Button,Swipe,SwipeItem,
-  	"my-footer":{
-		template:`<footer><button>同意</button></footer>`
-	}
-  }
+  components: { Hot,Tabbar,TabItem,Header,TabContainer,TabContainerItem,Button,Swipe,SwipeItem}
 })
