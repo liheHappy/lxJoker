@@ -3,12 +3,7 @@
 		<!-- 头部选项卡 -->
   		<hx-tabbar></hx-tabbar>
 		<router-view></router-view>
-		<!-- 段子页面 -->
-		<div id="txt">
-			<header class="txt-header">
-				<img src="" alt="">
-			</header>
-		</div>
+		
   </div>
 </template>
 
@@ -25,13 +20,13 @@ export default {
 		"hx-tabbar":{
 			template:`<ul class="am-nav am-nav-pills am-nav-justify">
 			<li>
-				<router-link to="/Text"><span class="hxactive" @click="toggleClass">段子</span></router-link>
+				<router-link to="/"><span class="hxactive" @click="toggleClass">段子</span></router-link>
 			</li>
 			<li>
 				<router-link to="/Pic"><span @click="toggleClass">图片</span></router-link>
 			</li>
 			<li>
-				<router-link to="/Text"><span @click="toggleClass">视频</span></router-link>
+				<router-link to="/Video"><span @click="toggleClass">视频</span></router-link>
 			</li>
 		</ul>`,
 			methods:{
