@@ -33,26 +33,25 @@ export default {
 			<li>
 				<router-link to="/Text"><span @click="toggleClass">视频</span></router-link>
 			</li>
-		</ul>`
+		</ul>`,
+			methods:{
+				toggleClass:function(event){
+					if(event.target.className=="hxactive"){
+					}else{
+						var arr=document.querySelectorAll(".am-nav li span");
+						for(var i=0;i<3;i++){
+							arr[i].className="";
+						}
+						event.target.className="hxactive";
+					}
+				}
+			}
 		}
-		
 	},
 	created(){
 		Vue.axios.get("../static/json/duanText.json").then((res)=>{
 			console.log(res.data.data.data);
 		})
-	},
-	methods:{
-		toggleClass:function(event){
-			if(event.target.className=="hxactive"){
-			}else{
-				var arr=document.querySelectorAll(".am-nav li span");
-				for(var i=0;i<3;i++){
-					arr[i].className="";
-				}
-				event.target.className="hxactive";
-			}
-		}
 	},
 	computed:{
 		
