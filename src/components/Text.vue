@@ -1,5 +1,6 @@
 <template>
 	<div class="text">
+		<h3>再出问题我可就疯了</h3>
 		<!-- 段子页面 -->
 		<hx-text-list></hx-text-list>
 	</div>
