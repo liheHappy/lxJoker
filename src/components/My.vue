@@ -12,7 +12,7 @@
 	  	</div>
 	  	<div class="am-u-sm-8">
 	  		<a href="" class="am-u-sm-4">
-	  			<span>0</span>
+	  			<span>1</span>
 	  			<span>粉丝</span>
 	  		</a>
 	  		<a href="" class="am-u-sm-4">
