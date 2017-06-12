@@ -48,11 +48,6 @@ export default {
 			}
 		}
 	},
-	created(){
-		Vue.axios.get("../static/json/duanText.json").then((res)=>{
-			console.log(res.data.data.data);
-		})
-	},
 	computed:{
 		
 	}
