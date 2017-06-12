@@ -54,10 +54,10 @@ export default {
 *{
   margin: 0;
   padding: 0;
-}/* 
-.mint-tabbar{
-  position: fixed;
-} */
+}
+body{
+  background: #eeeeee;
+}
 .view{
   overflow: auto;
 }
