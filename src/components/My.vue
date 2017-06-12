@@ -78,14 +78,16 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scope>
 	.am-g{
-		margin-top: 1rem;
-		margin-bottom: 1rem;
+		background: #FFFFFF;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
 	}
 	.am-icon-btn{
-		width: 100px;
-    height: 100px;
-    font-size: 80px;
-    line-height: 90px;
+		width: 9rem;
+    height: 9rem;
+    font-size: 11rem;
+    line-height: 9.1rem;
+		color: #FFFFFF;
 	}
 	.am-u-sm-8 .am-u-sm-4{
 		margin-bottom: 1rem;
@@ -100,8 +102,12 @@ export default {
 		border: 1px solid hotpink;
     color: hotpink;
 	}
+	.message .am-nav.am-nav-pills.am-nav-justify{
+		margin-top: 0.3rem;
+		background: #FFFFFF;
+	}
 	.am-nav.am-nav-pills.am-nav-justify{
-		background:#dcd9cf;
+		background: #dcd9cf;
 	}
 	.am-nav.am-nav-pills.am-nav-justify li{
 		text-align: center;
@@ -109,7 +115,7 @@ export default {
 		line-height: 40px;
 	}
 	.am-nav.am-nav-pills.am-nav-justify>li>a{
-		color: #874c0d;
+		color: black;
 	}
 	.am-nav.am-nav-pills.am-nav-justify>li>a:hover{
 		background: none;
