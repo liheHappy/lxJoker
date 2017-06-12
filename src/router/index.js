@@ -9,6 +9,10 @@ import Aggrement from '@/components/Aggrement'
 import Text from '@/components/Text'
 import Pic from '@/components/Pic'
 import Video from '@/components/Video'
+import Book from '@/components/Book'
+import Playing from '@/components/Playing'
+import Collect from '@/components/Collect'
+import Comment from '@/components/Comment'
 
 Vue.use(Router)
 
@@ -20,7 +24,7 @@ export default new Router({
       component: Index,
       children:[
         {
-          path: '/Text',
+          path: '/',
           name: 'Text',
           component: Text
         },
@@ -49,7 +53,29 @@ export default new Router({
     {
       path: '/My',
       name: 'My',
-      component: My
+      component: My,
+      children:[
+        {
+          path: '/My',
+          name: 'Book',
+          component: Book
+        },
+        {
+          path: '/Playing',
+          name: 'Playing',
+          component: Playing
+        },
+        {
+          path: '/Collect',
+          name: 'Collect',
+          component: Collect
+        },
+        {
+          path: '/Comment',
+          name: 'Comment',
+          component: Comment
+        }
+      ]
     },
     {
       path: '/Write',
