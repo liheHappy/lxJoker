@@ -4,6 +4,20 @@
 	<hx-show-header></hx-show-header>
   	<!-- 信息列表 -->
 	<hx-text-msg></hx-text-msg>
+	<!-- 热评列表 -->
+	<hx-commenthot-list></hx-commenthot-list>
+	
+	<!-- 鲜评列表 -->
+	<hx-commentnew-list></hx-commentnew-list>
+	<div>
+		
+	</div>
+	</div>
+	
+	
+
+
+
   </div>
 </template>
 
@@ -59,23 +73,12 @@ export default {
 		      	}
 		      })
 		    })
-
-		  	//段子评论的数据
-		  	//
-		  	// var url="http://m.neihanshequ.com/api/get_essay_comments/?app_name=neihanshequ_web&group_id="+id+"&offset=0&csrfmiddlewaretoken=a66e8d138afdb05562b9c00dc6bca50b";
-		  	// console.log(url)
-		  	// jsonp(url,null,(err,data)=>{
-		  	// 	if(err){
-		  	// 		console.log("数据获取失败");
-		  	// 	}else{
-		  	// 		console.log(data)
-		  	// 	}
-		  	// })
 		  }	
 
   	},
   	"hx-show-header":{
-  		template:`<div><header data-am-widget="header"
+  		template:`<div>
+  					<header data-am-widget="header"
 			          class="am-header am-header-default">
 			      <div class="am-header-left am-header-nav" @click="goBack">
 			  			<i class=" fa am-icon-angle-left"></i>
@@ -88,22 +91,140 @@ export default {
 			      <div class="am-header-right am-header-nav">
 			      	举报
 			      </div>
-			  </header></div>`,
+			  </header>
+			  </div>`,
 		methods:{
 			goBack(){
 				window.history.back();
 			}
 		}
+  	},
+  	"hx-commenthot-list":{
+  		template:`<div class="list">
+  				<span class="commentHot">热门评论( {{num}} )</span>
+		  		<div v-for="items in arr">
+				<article class="am-comment">
+				  <a href="#link-to-user-home">
+				    <img :src="items.avatar_url" alt="" class="am-comment-avatar" width="48" height="48"/>
+				  </a>
+				  <div class="am-comment-main">
+				    <header class="am-comment-hd">
+				      <div class="am-comment-meta">
+				        <a href="#link-to-user" class="am-comment-author">{{items.user_name}}</a>
+				   		<time datetime="2013-07-27T04:54:29-07:00" title="2013年7月27日 下午7:54 格林尼治标准时间+0800">2014-7-12 15:30</time>
+				      </div>
+				      <div class="zanZhuan">
+				      	<i class="am-icon-thumbs-up">{{items.digg_count}}</i>
+						<i class="am-icon-share"></i>
+				      </div>
+				    </header>
+
+				    <div class="am-comment-bd">
+				      {{items.text}}
+				    </div>
+				  </div>
+				</article>
+			</div>
+			</div>`,
+  		data(){
+  			return {
+  				arr:"",
+  				num:""
+  			}
+  		},
+  		created(){
+		  	//段子评论的数据
+		  	// var id=window.location.hash.replace("#/Textshow/","");
+		  	// var url="http://m.neihanshequ.com/api/get_essay_comments/?app_name=neihanshequ_web&group_id="+id+"&offset=0&csrfmiddlewaretoken=a66e8d138afdb05562b9c00dc6bca50b";
+		  	// console.log(url)
+		  	// jsonp(url,null,(err,data)=>{
+		  	// 	if(err){
+		  	// 		console.log("数据获取失败");
+		  	// 	}else{
+		  	// 		console.log(data)
+		  	// 	}
+		  	// })
+
+		  	Vue.axios.get("../static/json/comment.json").then((res)=>{
+		      return res.data.data.top_comments;
+		    }).then((data)=>{
+		      this.arr=data;
+		      this.num=this.arr.length;
+		    })
+  		}
+  	},
+  	"hx-commentnew-list":{
+  		template:`<div class="list">
+  				<span class="commentHot">新鲜评论( {{num}} )</span>
+		  		<div v-for="items in arr">
+				<article class="am-comment">
+				  <a href="#link-to-user-home">
+				    <img :src="items.avatar_url" alt="" class="am-comment-avatar" width="48" height="48"/>
+				  </a>
+				  <div class="am-comment-main">
+				    <header class="am-comment-hd">
+				      <div class="am-comment-meta">
+				        <a href="#link-to-user" class="am-comment-author">{{items.user_name}}</a>
+				   		<time datetime="2013-07-27T04:54:29-07:00" title="2013年7月27日 下午7:54 格林尼治标准时间+0800">2014-7-12 15:30</time>
+				      </div>
+				      <div class="zanZhuan">
+				      	<i class="am-icon-thumbs-up">{{items.digg_count}}</i>
+						<i class="am-icon-share"></i>
+				      </div>
+				    </header>
+
+				    <div class="am-comment-bd">
+				      {{items.text}}
+				    </div>
+				  </div>
+				</article>
+			</div>
+			</div>`,
+  		data(){
+  			return {
+  				arr:"",
+  				num:""
+  			}
+  		},
+  		created(){
+		  	//段子评论的数据
+		  	// var id=window.location.hash.replace("#/Textshow/","");
+		  	// var url="http://m.neihanshequ.com/api/get_essay_comments/?app_name=neihanshequ_web&group_id="+id+"&offset=0&csrfmiddlewaretoken=a66e8d138afdb05562b9c00dc6bca50b";
+		  	// console.log(url)
+		  	// jsonp(url,null,(err,data)=>{
+		  	// 	if(err){
+		  	// 		console.log("数据获取失败");
+		  	// 	}else{
+		  	// 		console.log(data)
+		  	// 	}
+		  	// })
+
+		  	Vue.axios.get("../static/json/comment.json").then((res)=>{
+		      return res.data.data.recent_comments;
+		    }).then((data)=>{
+		      this.arr=data;
+		      this.num=this.arr.length;
+		    })
+  		}
   	}
   }
 }
 </script>
 
 <style>
+.textshow{
+	height: 100vh;
+	background:#eee;
+	position: absolute;
+	z-index: 1;
+	overflow-x: hidden;
+	width: 100%;
+}
 .txt{
 	background: #fff;
 	overflow: auto;
 	margin-bottom: .5rem;
+	padding-top: 49px;
 }
 .txt-header{
 	padding-top: .5rem;
@@ -152,6 +273,8 @@ export default {
 }
 .am-header.am-header-default{
 	background:#dcd9cf;
+	position: fixed;
+	z-index: 100;
 }
 .am-header-left.am-header-nav,.am-header-default .am-header-title,.am-header-right.am-header-nav{
 	color: #874c0d;
@@ -161,6 +284,23 @@ export default {
 }
 .am-header-left.am-header-nav i{
 	font-weight: normal;
+}
+.textshow .list{
+	background: #fff;
+}
+.am-comment{
+	padding: 1rem .5rem;
+}
+.am-comment-author{
+	display: block;
+}
+.list i{
+	padding: .5rem;
+	color: #ccc;
+}
+.commentHot{
+	font-size: .5rem;
+	margin-left: .5rem;
 }
 </style>
 
