@@ -6,26 +6,9 @@
 		  	<span class="iconfont icon-shezhi"></span>
 		  </mt-button>
 		</mt-header>
-	  <div class="am-g">
-	  	<div class="am-u-sm-4">
-	  		<a href="" class="am-icon-btn am-icon-user"></a>
-	  	</div>
-	  	<div class="am-u-sm-8">
-	  		<a href="" class="am-u-sm-4">
-	  			<span>1</span>
-	  			<span>粉丝</span>
-	  		</a>
-	  		<a href="" class="am-u-sm-4">
-	  			<span>0</span>
-	  			<span>关注</span>
-	  		</a>
-	  		<a href="" class="am-u-sm-4">
-	  			<span>0</span>
-	  			<span>积分</span>
-	  		</a>
-	  		<router-link class="field" to="/Field">立即登录</router-link>
-	  	</div>
-	  </div>
+		<!--头像组件-->
+		<hx-my-means></hx-my-means>
+		<!--选项卡组件-->
 	  <hx-my-tabbar></hx-my-tabbar>
 	  <router-view></router-view>
   </div>
@@ -69,6 +52,30 @@ export default {
 					}
 				}
 			}
+		},
+		"hx-my-means":{
+			template:`
+				<div class="am-g">
+			  	<div class="am-u-sm-4">
+			  		<a href="" class="am-icon-btn am-icon-user"></a>
+			  	</div>
+			  	<div class="am-u-sm-8">
+			  		<a href="" class="am-u-sm-4">
+			  			<span>1</span>
+			  			<span>粉丝</span>
+			  		</a>
+			  		<a href="" class="am-u-sm-4">
+			  			<span>0</span>
+			  			<span>关注</span>
+			  		</a>
+			  		<a href="" class="am-u-sm-4">
+			  			<span>0</span>
+			  			<span>积分</span>
+			  		</a>
+			  		<router-link class="field" to="/Field">立即登录</router-link>
+			  	</div>
+			  </div>
+			`
 		}
 	}
 }
