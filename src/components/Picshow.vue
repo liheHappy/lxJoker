@@ -1,7 +1,7 @@
 <template>
   <div class="Picshow">
 	<!-- 头部 -->
-	<hx-pic-header></hx-pic-header>
+	<hx-show-header></hx-show-header>
   	<!-- 信息列表 -->
 	<hx-pic-msg></hx-pic-msg>
 	<!-- 热评列表 -->
@@ -27,26 +27,29 @@ export default {
   },
   components:{
   	"hx-pic-msg":{
-  		template:`<div>
-				<div class="pic picTop">
-					<header class="txt-header">
-						<img :src="obj.group.user.avatar_url" class="am-comment-avatar" width="48" height="48">
-						<span>{{obj.group.user.name}}</span>
-						<span class="hasBorderOne">+加关注</span>
-					</header>
-					<p class="am-article-lead">
-						{{obj.group.text}}
-						<span class="neihan">{{obj.group.category_name}}</span>
-					</p>
-					<div>
-						<i class="am-icon-thumbs-up">	{{obj.group.digg_count}}</i>
-						<i class="am-icon-thumbs-down">{{obj.group.bury_count}}</i>
-						<i class="am-icon-commenting-o">{{obj.group.comment_count}}</i>
-						<i class="am-icon-share">
-						{{obj.group.share_count}}</i>
+  		template:`
+	  		<div>
+					<div class="txt txtTop">
+						<header class="txt-header">
+							<img :src="obj.group.user.avatar_url" class="am-comment-avatar" width="48" height="48" />
+							<span>{{obj.group.user.name}}</span>
+							<span class="hasBorderOne">+加关注</span>
+						</header>
+						<p class="am-article-lead">
+							{{obj.group.text}}
+							<span class="neihan">{{obj.group.category_name}}</span>
+							<img :src="obj.group.large_image.url_list[0].url" />
+						</p>
+						<div>
+							<i class="am-icon-thumbs-up">	{{obj.group.digg_count}}</i>
+							<i class="am-icon-thumbs-down">{{obj.group.bury_count}}</i>
+							<i class="am-icon-commenting-o">{{obj.group.comment_count}}</i>
+							<i class="am-icon-share">
+							{{obj.group.share_count}}</i>
+						</div>
 					</div>
 				</div>
-			</div>`,
+			`,
 		data(){
 			return {
 				obj:""
@@ -67,7 +70,7 @@ export default {
 		  }	
 
   	},
-  	"hx-Pic-header":{
+  	"hx-show-header":{
   		template:`<div>
   					<header data-am-widget="header"
 			          class="am-header am-header-default">
@@ -136,7 +139,8 @@ export default {
 		  	// 	}
 		  	// })
 
-		  	Vue.axios.get("../static/json/comment.json").then((res)=>{
+		  	Vue.axios.get("../static/json/picComment.json").then((res)=>{
+		  		//console.log(res.data.data)
 		      return res.data.data.top_comments;
 		    }).then((data)=>{
 		      this.arr=data;
@@ -190,7 +194,7 @@ export default {
 		  	// 	}
 		  	// })
 
-		  	Vue.axios.get("../static/json/comment.json").then((res)=>{
+		  	Vue.axios.get("../static/json/picComment.json").then((res)=>{
 		      return res.data.data.recent_comments;
 		    }).then((data)=>{
 		      this.arr=data;
@@ -203,7 +207,7 @@ export default {
 </script>
 
 <style>
-.picshow{
+.Picshow{
 	height: 100vh;
 	background:#eee;
 	position: absolute;
@@ -211,22 +215,22 @@ export default {
 	overflow-x: hidden;
 	width: 100%;
 }
-.pic{
+.txt{
 	background: #fff;
 	overflow: auto;
 	margin-bottom: .5rem;
 }
-.picTop{
+.txtTop{
 	padding-top: 49px;
 }
 
-.pic-header{
+.txt-header{
 	padding-top: .5rem;
 	height: 40px;
 	line-height: 40px;
 	margin-bottom: .5rem;
 }
-.pic-header img{
+.txt-header img{
 	margin-top: 4px;
 	margin-left: 1rem;
 	margin-right: 0.5rem;
@@ -245,6 +249,10 @@ export default {
 .am-article-lead{
 	margin: 0;
 	background: none;
+	overflow-x: hidden;
+}
+.am-article-lead img{
+	width: 100vw;
 }
 .neihan{
 	border: 1px solid #ccc;
@@ -258,7 +266,7 @@ export default {
 .am-icon-share{
 	float: right;
 }
-.pic div i{
+.txt div i{
 	padding: .8rem;
 	color: #ccc;
 }
@@ -279,7 +287,7 @@ export default {
 .am-header-left.am-header-nav i{
 	font-weight: normal;
 }
-.picshow .list{
+.Picshow .list{
 	background: #fff;
 }
 .am-comment{
