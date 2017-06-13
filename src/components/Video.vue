@@ -1,7 +1,6 @@
 <template>
   <div class="video">
 		<!--视频页面-->
-		<h1>sssssssssss</h1>
 		<hx-video-msg></hx-video-msg>
   </div>
 </template>
