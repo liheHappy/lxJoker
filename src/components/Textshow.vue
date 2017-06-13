@@ -64,6 +64,26 @@ export default {
 		      	}
 		      })
 		    })
+
+		   // var url="http://m.neihanshequ.com/?is_json=1&app_name=neihanshequ_web&min_time=1497066604&csrfmiddlewaretoken=a66e8d138afdb05562b9c00dc6bca50b";
+		  	// jsonp(url,null,(err,res)=>{
+		  	// 	if(err){
+		  	// 		console.log("数据获取失败");
+		  	// 	}else{
+		  	// 		console.log(res.data.data)
+		  	// 		var data=res.data.data;
+		  	// 		data.map((item,index)=>{
+			  //     		if(item.group.group_id==id){
+				 //     		//this.obj=item;
+				 //     		console.log(item)
+				 //      	}
+				 //     })
+
+
+		  	// 	}
+		  	// })
+
+
 		  }	
 
   	},
@@ -125,23 +145,23 @@ export default {
   		},
   		created(){
 		  	//段子评论的数据
-		  	// var id=window.location.hash.replace("#/Textshow/","");
-		  	// var url="http://m.neihanshequ.com/api/get_essay_comments/?app_name=neihanshequ_web&group_id="+id+"&offset=0&csrfmiddlewaretoken=a66e8d138afdb05562b9c00dc6bca50b";
-		  	// console.log(url)
-		  	// jsonp(url,null,(err,data)=>{
-		  	// 	if(err){
-		  	// 		console.log("数据获取失败");
-		  	// 	}else{
-		  	// 		console.log(data)
-		  	// 	}
-		  	// })
+		  	var id=window.location.hash.replace("#/Textshow/","");
+		  	var url="http://m.neihanshequ.com/api/get_essay_comments/?app_name=neihanshequ_web&group_id="+id+"&offset=0&csrfmiddlewaretoken=a66e8d138afdb05562b9c00dc6bca50b";
+		  	console.log(url)
+		  	jsonp(url,null,(err,data)=>{
+		  		if(err){
+		  			console.log("数据获取失败");
+		  		}else{
+		  			//console.log(data)
+		  		}
+		  	})
 
-		  	Vue.axios.get("../static/json/comment.json").then((res)=>{
-		      return res.data.data.top_comments;
-		    }).then((data)=>{
-		      this.arr=data;
-		      this.num=this.arr.length;
-		    })
+		  	// Vue.axios.get("../static/json/comment.json").then((res)=>{
+		   //    return res.data.data.top_comments;
+		   //  }).then((data)=>{
+		   //    this.arr=data;
+		   //    this.num=this.arr.length;
+		   //  })
   		}
   	},
   	"hx-commentnew-list":{
@@ -179,16 +199,16 @@ export default {
   		},
   		created(){
 		  	//段子评论的数据
-		  	// var id=window.location.hash.replace("#/Textshow/","");
-		  	// var url="http://m.neihanshequ.com/api/get_essay_comments/?app_name=neihanshequ_web&group_id="+id+"&offset=0&csrfmiddlewaretoken=a66e8d138afdb05562b9c00dc6bca50b";
-		  	// console.log(url)
-		  	// jsonp(url,null,(err,data)=>{
-		  	// 	if(err){
-		  	// 		console.log("数据获取失败");
-		  	// 	}else{
-		  	// 		console.log(data)
-		  	// 	}
-		  	// })
+		  	var id=window.location.hash.replace("#/Textshow/","");
+		  	var url="http://m.neihanshequ.com/api/get_essay_comments/?app_name=neihanshequ_web&group_id="+id+"&offset=0&csrfmiddlewaretoken=a66e8d138afdb05562b9c00dc6bca50b";
+		  	console.log(url)
+		  	jsonp(url,null,(err,data)=>{
+		  		if(err){
+		  			console.log("数据获取失败");
+		  		}else{
+		  			//console.log(data)
+		  		}
+		  	})
 
 		  	Vue.axios.get("../static/json/comment.json").then((res)=>{
 		      return res.data.data.recent_comments;
