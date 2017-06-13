@@ -1,6 +1,9 @@
 <template>
   <div class="textshow">
-	<hx-text-list></hx-text-list>
+	<!-- 头部 -->
+	<hx-show-header></hx-show-header>
+  	<!-- 信息列表 -->
+	<hx-text-msg></hx-text-msg>
   </div>
 </template>
 
@@ -18,30 +21,30 @@ export default {
 
   },
   components:{
-  	"hx-text-list":{
+  	"hx-text-msg":{
   		template:`<div>
-				<div class="txt" v-for="items in arr">
+				<div class="txt">
 					<header class="txt-header">
-						<img :src="items.group.user.avatar_url" class="am-comment-avatar" width="48" height="48">
-						<span>{{items.group.user.name}}</span>
+						<img :src="obj.group.user.avatar_url" class="am-comment-avatar" width="48" height="48">
+						<span>{{obj.group.user.name}}</span>
 						<span class="hasBorderOne">+加关注</span>
 					</header>
 					<p class="am-article-lead">
-						{{items.group.text}}
-						<span class="neihan">{{items.group.category_name}}</span>
+						{{obj.group.text}}
+						<span class="neihan">{{obj.group.category_name}}</span>
 					</p>
 					<div>
-						<i class="am-icon-thumbs-up">	{{items.group.digg_count}}</i>
-						<i class="am-icon-thumbs-down">{{items.group.bury_count}}</i>
-						<i class="am-icon-commenting-o">{{items.group.comment_count}}</i>
+						<i class="am-icon-thumbs-up">	{{obj.group.digg_count}}</i>
+						<i class="am-icon-thumbs-down">{{obj.group.bury_count}}</i>
+						<i class="am-icon-commenting-o">{{obj.group.comment_count}}</i>
 						<i class="am-icon-share">
-						{{items.group.share_count}}</i>
+						{{obj.group.share_count}}</i>
 					</div>
 				</div>
 			</div>`,
 		data(){
 			return {
-				arr:""
+				obj:""
 			}
 		},
 		created(){
@@ -50,8 +53,11 @@ export default {
 		  	Vue.axios.get("../static/json/duanText.json").then((res)=>{
 		      return res.data.data.data;
 		    }).then((data)=>{
-		      this.arr=data;
-		      console.log(this.arr)
+		      data.map((item,index)=>{
+		      	if(item.group.group_id==id){
+		     		this.obj=item;
+		      	}
+		      })
 		    })
 
 		  	//段子评论的数据
@@ -67,16 +73,29 @@ export default {
 		  	// })
 		  }	
 
-  	}
-  },
-  computed:{
-  	getId(){
-  		var id=window.location.hash.replace("#/Textshow/","");
-  		console.log(id);
-  		return id;
+  	},
+  	"hx-show-header":{
+  		template:`<div><header data-am-widget="header"
+			          class="am-header am-header-default">
+			      <div class="am-header-left am-header-nav" @click="goBack">
+			  			<i class=" fa am-icon-angle-left"></i>
+			      </div>
+
+			      <h1 class="am-header-title">
+			          详情
+			      </h1>
+
+			      <div class="am-header-right am-header-nav">
+			      	举报
+			      </div>
+			  </header></div>`,
+		methods:{
+			goBack(){
+				window.history.back();
+			}
+		}
   	}
   }
-  
 }
 </script>
 
@@ -130,6 +149,18 @@ export default {
 }
 .fontColor{
 	color: #000;
+}
+.am-header.am-header-default{
+	background:#dcd9cf;
+}
+.am-header-left.am-header-nav,.am-header-default .am-header-title,.am-header-right.am-header-nav{
+	color: #874c0d;
+}
+.am-header-default .am-header-title{
+	font-size: 1.7rem;
+}
+.am-header-left.am-header-nav i{
+	font-weight: normal;
 }
 </style>
 
