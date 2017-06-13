@@ -72,4 +72,11 @@ export default {
 .mint-field-core{
 	color: #000;
 }
+.forgetPass{
+	height: 100vh;
+	position: relative;
+	background: #efeeee;
+	width: 100%;
+	z-index: 10;
+}
 </style>
