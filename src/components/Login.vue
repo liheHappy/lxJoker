@@ -23,9 +23,9 @@ export default {
 			        <div class="am-header-left am-header-nav" @click="goBack">
 			  		  <i class=" fa am-icon-angle-left"></i>
 			        </div>
-			        <h1 class="am-header-title">手机号登陆</h1>
+			        <h1 class="am-header-title">手机号登录</h1>
 				    <div class="am-header-right am-header-nav">
-				      <router-link class="register" to="">注册</router-link>
+				      <router-link class="register" to="/Register">注册</router-link>
 				    </div>
 			  	  </header>
 			    </div>
@@ -42,8 +42,8 @@ export default {
 				  <div class="logininput">
 				    <mt-field label="手机号" placeholder="请输入你的手机号" type="tel"></mt-field>
 				    <mt-field label="密码" placeholder="输入密码" type="password"></mt-field>
-				    <mt-button size="large" type="danger">large</mt-button>
-				    <router-link class="forget" to="">忘记密码</router-link>
+				    <mt-button size="large" type="danger">登录</mt-button>
+				    <router-link class="forget" to="/ForgetPass">忘记密码</router-link>
 				  </div>
 				</div>
 			`
@@ -65,6 +65,9 @@ export default {
 .login .logininput{
 	margin-top: 49px;
 	padding-top: 1rem;
+}
+.am-header .am-header-title{
+	font-size: 1.7rem;
 }
 .login .logininput .forget{
 	float: right;
@@ -96,5 +99,11 @@ export default {
 }
 .aggrement{
 	color: black;
+}
+.mint-cell-text{
+	color: #000;
+}
+.mint-field-core{
+	color: #000;
 }
 </style>
