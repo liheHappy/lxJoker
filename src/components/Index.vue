@@ -72,4 +72,10 @@ export default {
 	margin-bottom: 1px;
 	display: inline-block; 
 }
+.txt{
+	background: #fff;
+	overflow: auto;
+	margin-bottom: .5rem;
+	color: #000;
+}
 </style>
