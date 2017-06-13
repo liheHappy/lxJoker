@@ -3,7 +3,7 @@
 		<!-- 头部 -->
   		<hx-header-tab></hx-header-tab>
 		<!-- 轮播图 -->
-		<mt-swipe :auto="4000">
+		<!-- <mt-swipe :auto="4000">
 		  <mt-swipe-item>
 			<img src="../assets/find1.jpg">
 		  </mt-swipe-item>
@@ -13,7 +13,7 @@
 		  <mt-swipe-item>
 			<img src="../assets/find3.jpg">
 		  </mt-swipe-item>
-		</mt-swipe>
+		</mt-swipe> -->
 		<!--发现界面-->
 		
 		<!-- <img src="../assets/head1.jpg" /> -->
