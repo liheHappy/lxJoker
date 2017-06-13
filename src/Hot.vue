@@ -16,23 +16,23 @@
             发现
           </router-link>
         </mt-tab-item>
-      <mt-tab-item id="tab">
-        <router-link to="/Write" class="nounder">
-          <b>+</b>
-        </router-link> 
-      </mt-tab-item>
-      <mt-tab-item id="tab3">
-        <router-link to="/Message" class="nounder">
-          <span class="iconfont icon-xiaoxi"></span>
-          消息
-        </router-link>
-      </mt-tab-item>
-      <mt-tab-item id="tab4">
-        <router-link to="/My" class="nounder">
-          <span class="iconfont icon-wode"></span>
-          我的
-        </router-link>
-      </mt-tab-item>
+        <mt-tab-item id="tab">
+          <router-link to="/Write" class="nounder">
+            <b>+</b>
+          </router-link> 
+        </mt-tab-item>
+        <mt-tab-item id="tab3">
+          <router-link to="/Message" class="nounder">
+            <span class="iconfont icon-xiaoxi"></span>
+            消息
+          </router-link>
+        </mt-tab-item>
+        <mt-tab-item id="tab4">
+          <router-link to="/My" class="nounder">
+            <span class="iconfont icon-wode"></span>
+            我的
+          </router-link>
+        </mt-tab-item>
     </mt-tabbar>
   </div>
 </template>
