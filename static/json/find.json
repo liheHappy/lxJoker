@@ -1,14 +1,14 @@
 {	
 	"head":[
-		{"title":"恐怖漫画", "content":"每张漫画都让人寒意阵阵，细思极恐！", "img":"../../src/assets/head1.jpg","take":"1158537","sum":"41212"},
-		{"title":"足球爱好者", "content":"足球爱好者聚集地，一起吐槽，一起疯狂", "img":"../../src/assets/head2.jpg","take":"222824","sum":"12150"},
-		{"title":"小说连载", "content":"小说连载，有趣到停不下来", "img":"../../src/assets/head3.jpg","take":"655267","sum":"29587"},
-		{"title":"最美的祝愿", "content":"最美的时光，许下最美的祝福。", "img":"../../src/assets/head4.jpg","take":"80801","sum":"16283"},
-		{"title":"致未来的自己", "content":"一路上有你，才成为最好的自己。", "img":"../../src/assets/head5.jpg","take":"418314","sum":"46328"},
-		{"title":"我为机车狂", "content":"有人说我们疯，那仅仅是一种偏见！", "img":"../../src/assets/head6.jpg","take":"224230","sum":"39925"},
-		{"title":"情感漫画", "content":"二次元情感故事，暖暖的治愈，暖暖的爱", "img":"../../src/assets/head7.jpg","take":"710419","sum":"29858"},
-		{"title":"内涵漫画", "content":"爆笑、内涵、故事，有你喜欢，有你想看", "img":"../../src/assets/head8.jpg","take":"1937078","sum":"65580"},
-		{"title":"我是学生党", "content":"出国考研不逃课，恋爱实习常挂科。", "img":"../../src/assets/head9.jpg","take":"722359","sum":"50890"},
-		{"title":"旅行家", "content":"去不同的地方，看不一样的风景~", "img":"../../src/assets/head10.jpg","take":"302900","sum":"44163"}
+		{"title":"恐怖漫画", "content":"每张漫画都让人寒意阵阵，细思极恐!", "img":"../../src/assets/head1.jpg", "take":"1158537", "sum":"41212"},
+		{"title":"足球爱好者", "content":"足球爱好者聚集地，一起吐槽，一起疯狂", "img":"../../src/assets/head2.jpg", "take":"222824", "sum":"12150"},
+		{"title":"小说连载", "content":"小说连载，有趣到停不下来", "img":"../../src/assets/head3.jpg", "take":"655267", "sum":"29587"},
+		{"title":"最美的祝愿", "content":"最美的时光，许下最美的祝福。", "img":"../../src/assets/head4.jpg", "take":"80801", "sum":"16283"},
+		{"title":"致未来的自己", "content":"一路上有你，才成为最好的自己。", "img":"../../src/assets/head5.jpg", "take":"418314", "sum":"46328"},
+		{"title":"我为机车狂", "content":"有人说我们疯，那仅仅是一种偏见！", "img":"../../src/assets/head6.jpg", "take":"224230", "sum":"39925"},
+		{"title":"情感漫画", "content":"二次元情感故事，暖暖的治愈，暖暖的爱", "img":"../../src/assets/head7.jpg", "take":"710419", "sum":"29858"},
+		{"title":"内涵漫画", "content":"爆笑、内涵、故事，有你喜欢，有你想看", "img":"../../src/assets/head8.jpg", "take":"1937078", "sum":"65580"},
+		{"title":"我是学生党", "content":"出国考研不逃课，恋爱实习常挂科。", "img":"../../src/assets/head9.jpg", "take":"722359", "sum":"50890"},
+		{"title":"旅行家", "content":"去不同的地方，看不一样的风景~", "img":"../../src/assets/head10.jpg", "take":"302900", "sum":"44163"}
 	]
 }
