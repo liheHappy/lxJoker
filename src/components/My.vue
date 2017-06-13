@@ -72,7 +72,9 @@ export default {
 			  			<span>0</span>
 			  			<span>积分</span>
 			  		</a>
-			  		<router-link class="field" to="/Field">立即登录</router-link>
+			  		<router-link class="field" to="/Field">
+			  			<mt-button type="danger" size="large" plain>立即登录</mt-button>
+			  		</router-link>
 			  	</div>
 			  </div>
 			`
@@ -96,6 +98,9 @@ export default {
     line-height: 9.1rem;
 		color: #FFFFFF;
 	}
+	.am-u-sm-8 .field mt-button{
+		display: block;
+	}
 	.am-u-sm-8 .am-u-sm-4{
 		margin-bottom: 1rem;
 	}
@@ -103,16 +108,6 @@ export default {
 		display: block;
 		text-align: center;
 		color: black;
-	}
-	.am-u-sm-8 .field{
-		height: 3rem;
-		border: 1px solid hotpink;
-    color: hotpink;
-    display: inline-block;
-    margin-left: 2rem;
-    width: 80%;
-    text-align: center;
-    line-height: 3rem;
 	}
 	.message .am-nav.am-nav-pills.am-nav-justify{
 		margin-top: 0.3rem;
