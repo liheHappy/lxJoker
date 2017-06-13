@@ -1,9 +1,7 @@
 <template>
-	
   <div class="field am-animation-slide-right">
   	<hx-field-header></hx-field-header>
   	<hx-field-nav></hx-field-nav>
-
   </div>
 </template>
 
