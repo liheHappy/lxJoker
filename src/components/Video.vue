@@ -21,7 +21,7 @@ export default {
 							<span class="hasBorder">x</span>
 						</header>
 						<p class="am-article-lead">
-							<video :src="items.group['360p_video'].url_list[0].url"></video>
+//							<video :src="items.group['360p_video'].url_list[0].url"></video>
 						</p>
 						<div>
 							<i class="am-icon-thumbs-up">	{{items.group.digg_count}}</i>
