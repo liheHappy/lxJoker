@@ -23,7 +23,7 @@
 	  			<span>0</span>
 	  			<span>积分</span>
 	  		</a>
-	  		<mt-button type="danger" size="large" plain>立即登录</mt-button>
+	  		<router-link class="field" to="/Field">立即登录</router-link>
 	  	</div>
 	  </div>
 	  <hx-my-tabbar></hx-my-tabbar>
@@ -97,10 +97,15 @@ export default {
 		text-align: center;
 		color: black;
 	}
-	.am-u-sm-8 .mint-button{
+	.am-u-sm-8 .field{
 		height: 3rem;
 		border: 1px solid hotpink;
     color: hotpink;
+    display: inline-block;
+    margin-left: 2rem;
+    width: 80%;
+    text-align: center;
+    line-height: 3rem;
 	}
 	.message .am-nav.am-nav-pills.am-nav-justify{
 		margin-top: 0.3rem;
