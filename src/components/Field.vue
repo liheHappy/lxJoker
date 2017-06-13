@@ -2,26 +2,8 @@
 	
   <div class="field am-animation-slide-right">
   	<hx-field-header></hx-field-header>
-    <ul class="am-list am-list-static am-list-border">
-    	<a>
-    		<li><span><i class="am-icon-mobile am-icon-md"></i></span>手机号</li>
-    	</a>
-    	<a>
-    		<li><span><i class="am-icon-wechat am-icon-sm"></i></span>微信</li>
-    	</a>
-    	<a>
-    		<li><span><i class="am-icon-weibo am-icon-sm"></i></span>新浪微博</li>
-    	</a>
-    	<a>
-    		<li><span><i class="am-icon-qq am-icon-sm"></i></span>腾讯QQ</li>
-    	</a>
-    	<a>
-    		<li><span><i class="am-icon-tencent-weibo am-icon-sm"></i></span>腾讯微博</li>
-    	</a>
-		</ul>
-		<router-link class="aggrement" to="/Aggrement">
-			<input type="checkbox" checked="checked" />我同意《内涵段子用户使用协议》
-		</router-link>
+  	<hx-field-nav></hx-field-nav>
+
   </div>
 </template>
 
@@ -49,6 +31,30 @@ export default {
 					window.history.back();
 				}
 			}
+		},
+		"hx-field-nav":{
+			template:`
+				<ul class="am-list am-list-static am-list-border">
+		    	<a>
+		    		<li><span><i class="am-icon-mobile am-icon-md"></i></span>手机号</li>
+		    	</a>
+		    	<a>
+		    		<li><span><i class="am-icon-wechat am-icon-sm"></i></span>微信</li>
+		    	</a>
+		    	<a>
+		    		<li><span><i class="am-icon-weibo am-icon-sm"></i></span>新浪微博</li>
+		    	</a>
+		    	<a>
+		    		<li><span><i class="am-icon-qq am-icon-sm"></i></span>腾讯QQ</li>
+		    	</a>
+		    	<a>
+		    		<li><span><i class="am-icon-tencent-weibo am-icon-sm"></i></span>腾讯微博</li>
+		    	</a>
+				</ul>
+				<router-link class="aggrement" to="/Aggrement">
+					<input type="checkbox" checked="checked" />我同意《内涵段子用户使用协议》
+				</router-link>
+			`
 		}
 	}
 }
@@ -101,6 +107,9 @@ export default {
 }
 .field .am-list a:nth-of-type(5)>li>span{
 	background: #1ac5de;
+}
+.field>.am-list>a>li{
+	list-style: none;
 }
 .field>.am-list>a>li>span{
 	display: inline-block;
