@@ -40,9 +40,13 @@ export default {
 			template:`
 				<div>
 				  <div class="logininput">
-				    <mt-field label="手机号" placeholder="请输入你的手机号" type="tel"></mt-field>
+				    <mt-field label="手机号" placeholder="请输入你的手机号" type="number"></mt-field>
 				    <mt-field label="密码" placeholder="输入密码" type="password"></mt-field>
-				    <mt-button size="large" type="danger">登录</mt-button>
+				    <router-link to="/My">
+				    <mt-button size="large" type="danger">
+				    	登录
+				    </mt-button>
+				    </router-link>
 				    <router-link class="forget" to="/ForgetPass">忘记密码</router-link>
 				  </div>
 				</div>
