@@ -13,6 +13,7 @@ import Book from '@/components/Book'
 import Playing from '@/components/Playing'
 import Collect from '@/components/Collect'
 import Comment from '@/components/Comment'
+import Textshow from '@/components/Textshow'
 
 Vue.use(Router)
 
@@ -86,6 +87,11 @@ export default new Router({
       path: '/Aggrement',
       name: 'Aggrement',
       component: Aggrement
+    },
+    {
+      path: '/Textshow/:id',
+      name: 'Textshow',
+      component: Textshow
     }
   ]
 })
