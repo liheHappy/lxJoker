@@ -58,11 +58,21 @@ export default {
 				</div>`,
 		components:{
 			"hx-find-list":{
-		  		template:`<div>
+		  		template:`
+		  			<div>
 							<div class="head" v-for="items in arr">
 									<img :src="items.images" class="am-img-thumbnail" width="48" height="48"/>
+									<div class="findName">
+										<h5>{{items.title}}</h5>
+										<p>
+											<span>{{items.content}}</span>
+											<i>{{items.take}} 订阅 | 总贴数 </i><b>{{items.sum}}</b>
+										</p>
+									</div>
+									<button>订阅</button>
 							</div>
-				    	</div>`,
+				    </div>
+				  `,
 			  	data(){
 					return {
 						arr:""
@@ -99,7 +109,11 @@ export default {
 	height: 100%;
 	width: 100%;
 }
-
+#tab1{
+	padding: 0;
+	background: #FFFFFF;
+	margin-bottom: 4.7rem;
+}
 .am-tabs-bd{
 	border: none;
 	z-index: -1;
@@ -124,8 +138,53 @@ export default {
 	background: pink;
 	border-radius: 7px;
 }
-
 .find{
 	overflow: auto; 
+}
+.head{
+	padding: 0.5rem 0.5rem 0.5rem 0rem;
+	margin-left: 0.5rem;
+	display: flex;
+	border-bottom: 1px solid #e6e6e6;
+}
+.head img{
+	width: 4.3rem;
+	height: 4.3rem;
+	margin-right: 0.6rem;
+	border: 0;
+}
+.head button{
+	background: #FFFFFF;
+	border: 1px solid #999999;
+	color: #999999;
+	width: 4rem;
+	height: 2rem;
+	border-radius: 0.3rem;
+	font-size: 1.4rem;
+	margin-top: 1rem;
+}
+.head .findName{
+	width: 65vw;
+}
+.head .findName h5{
+	font-size: 1.5rem;
+	margin: 0;
+	color: #333333;
+	font-weight: normal;
+}
+.head .findName p{
+	font-size: 0.6rem;
+	color: #999999;
+	margin: 0;
+}
+.head .findName p span{
+	display: block;
+}
+.head .findName p i{
+	font-style: normal;
+}
+.head .findName p b{
+	font-weight: normal;
+	color: #ff6721;
 }
 </style>
