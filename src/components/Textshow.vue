@@ -205,7 +205,7 @@ export default {
 <style>
 .textshow{
 	height: 100vh;
-	background:#eee;
+	background: #eee;
 	position: absolute;
 	z-index: 1;
 	overflow-x: hidden;
