@@ -9,15 +9,6 @@
 	
 	<!-- 鲜评列表 -->
 	<hx-commentnew-list></hx-commentnew-list>
-	<div>
-		
-	</div>
-	</div>
-	
-	
-
-
-
   </div>
 </template>
 
@@ -37,7 +28,7 @@ export default {
   components:{
   	"hx-text-msg":{
   		template:`<div>
-				<div class="txt">
+				<div class="txt txtTop">
 					<header class="txt-header">
 						<img :src="obj.group.user.avatar_url" class="am-comment-avatar" width="48" height="48">
 						<span>{{obj.group.user.name}}</span>
@@ -224,8 +215,11 @@ export default {
 	background: #fff;
 	overflow: auto;
 	margin-bottom: .5rem;
+}
+.txtTop{
 	padding-top: 49px;
 }
+
 .txt-header{
 	padding-top: .5rem;
 	height: 40px;
