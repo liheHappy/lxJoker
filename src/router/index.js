@@ -14,6 +14,7 @@ import Playing from '@/components/Playing'
 import Collect from '@/components/Collect'
 import Comment from '@/components/Comment'
 import Textshow from '@/components/Textshow'
+import Picshow from '@/components/Picshow'
 import Field from '@/components/Field'
 import Login from '@/components/Login'
 
@@ -94,6 +95,11 @@ export default new Router({
       path: '/Textshow/:id',
       name: 'Textshow',
       component: Textshow
+    },
+    {
+      path: '/Picshow/:id',
+      name: 'Picshow',
+      component: Picshow
     },
     {
       path: '/Field',
