@@ -14,8 +14,8 @@ export default {
   	"hx-video-msg":{
   		template:`
   			<div>
-					<div class="video" v-for="items in arr">
-						<header class="video-header">
+					<div class="txt" v-for="items in arr">
+						<header class="txt-header">
 							<img :src="items.group.user.avatar_url" class="am-comment-avatar" width="48" height="48">
 							<span>{{items.group.user.name}}</span>
 							<span class="hasBorder">x</span>
@@ -59,6 +59,9 @@ export default {
 </script>
 
 <style>
+.video{
+	padding-top: 56px;
+}
 </style>
 
 
