@@ -15,6 +15,7 @@ import Collect from '@/components/Collect'
 import Comment from '@/components/Comment'
 import Textshow from '@/components/Textshow'
 import Field from '@/components/Field'
+import Login from '@/components/Login'
 
 Vue.use(Router)
 
@@ -98,6 +99,11 @@ export default new Router({
       path: '/Field',
       name: 'Field',
       component: Field
+    },
+    {
+      path: '/Login',
+      name: 'Login',
+      component: Login
     }
   ]
 })
