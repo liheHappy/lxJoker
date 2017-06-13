@@ -12,7 +12,7 @@ import 'jquery/dist/jquery.min.js'
 import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-
+import jsonp from 'jsonp'
 
 
 Vue.component(Tabbar.name, Tabbar);
@@ -26,7 +26,7 @@ Vue.component(SwipeItem.name, SwipeItem);
 
 
 Vue.use(Mint);
-Vue.use(VueAxios,axios);
+Vue.use(VueAxios,axios,jsonp);
 
 Vue.config.productionTip = false
 
