@@ -17,6 +17,8 @@ import Textshow from '@/components/Textshow'
 import Picshow from '@/components/Picshow'
 import Field from '@/components/Field'
 import Login from '@/components/Login'
+import ForgetPass from '@/components/ForgetPass'
+import Register from '@/components/Register'
 
 Vue.use(Router)
 
@@ -110,6 +112,16 @@ export default new Router({
       path: '/Login',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/ForgetPass',
+      name: 'ForgetPass',
+      component: ForgetPass
+    },
+    {
+      path: '/Register',
+      name: 'Register',
+      component: Register
     }
   ]
 })
