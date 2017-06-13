@@ -14,6 +14,7 @@ import Playing from '@/components/Playing'
 import Collect from '@/components/Collect'
 import Comment from '@/components/Comment'
 import Textshow from '@/components/Textshow'
+import Field from '@/components/Field'
 
 Vue.use(Router)
 
@@ -92,6 +93,11 @@ export default new Router({
       path: '/Textshow/:id',
       name: 'Textshow',
       component: Textshow
+    },
+    {
+      path: '/Field',
+      name: 'Field',
+      component: Field
     }
   ]
 })
