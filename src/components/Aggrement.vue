@@ -192,10 +192,8 @@ export default {
 </script>
 <style>
 .aggrement{
-	margin-top: 40px;
 	letter-spacing: 1px;
 	position: absolute;
-	height: 100vh;
 	z-index: 100;
 	background: #fff;
 }

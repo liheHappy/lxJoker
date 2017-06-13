@@ -1,6 +1,6 @@
 <template>
-	
-  <div class="field am-animation-slide-right">
+<div  class="field">
+  <div class="am-animation-slide-right">
   	<hx-field-header></hx-field-header>
     <ul class="am-list am-list-static am-list-border">
     	<a>
@@ -18,11 +18,12 @@
     	<a>
     		<li><span><i class="am-icon-tencent-weibo am-icon-sm"></i></span>腾讯微博</li>
     	</a>
-		</ul>
+	</ul>
 		<router-link class="aggrement" to="/Aggrement">
 			<input type="checkbox" checked="checked" />我同意《内涵段子用户使用协议》
 		</router-link>
   </div>
+ </div>
 </template>
 
 <script>

@@ -34,6 +34,7 @@ export default {
 		},
 		"hx-field-nav":{
 			template:`
+				<div>
 				<ul class="am-list am-list-static am-list-border">
 		    	<a>
 		    		<li><span><i class="am-icon-mobile am-icon-md"></i></span>手机号</li>
@@ -54,6 +55,7 @@ export default {
 				<router-link class="aggrement" to="/Aggrement">
 					<input type="checkbox" checked="checked" />我同意《内涵段子用户使用协议》
 				</router-link>
+				</div>
 			`
 		}
 	}

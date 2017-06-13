@@ -1,6 +1,6 @@
 <template>
-  <div class="message">
-  	<mt-header>
+  <div class="my">
+		<mt-header>
 		  <mt-button slot="right">
 		  	<span class="iconfont icon-icon"></span>
 		  	<span class="iconfont icon-shezhi"></span>
@@ -9,14 +9,14 @@
 		<!--头像组件-->
 		<hx-my-means></hx-my-means>
 		<!--选项卡组件-->
-	  <hx-my-tabbar></hx-my-tabbar>
-	  <router-view></router-view>
+	  	<hx-my-tabbar></hx-my-tabbar>
+	  	<router-view></router-view>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Message',
+  name: 'My',
   data(){
 		return {
 			selected:"1"
@@ -24,7 +24,7 @@ export default {
 	},
 	components:{
 		"hx-my-tabbar":{
-			template:`
+			template:`<div>
 				<ul class="am-nav am-nav-pills am-nav-justify">
 				  <li>
 				  	<router-link to="/My"><span class="lhactive" @click="toggleClass">投稿</span></router-link>
@@ -38,8 +38,7 @@ export default {
 				  <li>
 				  	<router-link to="/Comment"><span @click="toggleClass">评论</span></router-link>
 				  </li>
-				</ul>
-			`,
+				</ul></div>`,
 			methods:{
 				toggleClass:function(event){
 					if(event.target.className=="lhactive"){
@@ -86,6 +85,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scope>
+	.my{
+		overflow-x: hidden;
+		width: 100%;
+	}
 	.am-g{
 		background: #FFFFFF;
 		padding-top: 1rem;
@@ -109,7 +112,7 @@ export default {
 		text-align: center;
 		color: black;
 	}
-	.message .am-nav.am-nav-pills.am-nav-justify{
+	.my .am-nav.am-nav-pills.am-nav-justify{
 		margin-top: 0.3rem;
 		background: #FFFFFF;
 	}
