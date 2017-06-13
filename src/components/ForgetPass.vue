@@ -1,5 +1,6 @@
 <template>
   <div class="forgetPass am-animation-slide-right">
+  	<!-- 忘记页面头部 -->
   	<hx-forget-header></hx-forget-header>
   	<hx-forget-input></hx-forget-input>
 
