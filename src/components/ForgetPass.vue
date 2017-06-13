@@ -1,5 +1,6 @@
 <template>
   <div class="forgetPass am-animation-slide-right">
+  	<!-- 忘记页面头部 -->
   	<hx-forget-header></hx-forget-header>
   	<hx-forget-input></hx-forget-input>
 
@@ -71,5 +72,12 @@ export default {
 }
 .mint-field-core{
 	color: #000;
+}
+.forgetPass{
+	height: 100vh;
+	position: relative;
+	background: #efeeee;
+	width: 100%;
+	z-index: 10;
 }
 </style>
