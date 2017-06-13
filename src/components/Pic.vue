@@ -13,6 +13,7 @@ export default {
 		"hx-pic-list":{
 			template:`<div>
 					<div class="txt" v-for="items in arr">
+					<router-link :to="{name:'Picshow',params:{id:items.group.group_id}}">
 						<header class="txt-header">
 							<img :src="items.group.user.avatar_url" class="am-comment-avatar" width="48" height="48">
 							<span>{{items.group.user.name}}</span>
@@ -30,6 +31,7 @@ export default {
 							<i class="am-icon-share">
 							{{items.group.share_count}}</i>
 						</div>
+						</router-link>
 					</div>
 				</div>`,
 		  	data(){
