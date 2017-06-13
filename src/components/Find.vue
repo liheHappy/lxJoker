@@ -40,6 +40,17 @@ export default {
 				  </ul>
 				  <div class="am-tabs-bd">
 				    <div class="am-tab-panel am-active" id="tab1">
+				    <mt-swipe :auto="4000">
+						  <mt-swipe-item>
+							<img src="./static/img/find1.jpg">
+						  </mt-swipe-item>
+						  <mt-swipe-item>
+						  	<img src="./static/img/find2.jpg">
+						  </mt-swipe-item>
+						  <mt-swipe-item>
+							<img src="./static/img/find3.jpg">
+						  </mt-swipe-item>
+						</mt-swipe>
 				    	<hx-find-list></hx-find-list>
 				    </div>
 				    <div class="am-tab-panel" id="tab2">222</div>
@@ -49,8 +60,7 @@ export default {
 			"hx-find-list":{
 		  		template:`<div>
 							<div class="head" v-for="items in arr">
-									<img :src="items.images" />
-									{{items.images}}
+									<img :src="items.images" class="am-img-thumbnail" width="48" height="48"/>
 							</div>
 				    	</div>`,
 			  	data(){
@@ -78,26 +88,7 @@ export default {
 </script>
 
 <style>
-.findTop{
-	height: 40px;
-}
-.findButton{
-	color: #493d32;
-	border: 1px solid #493d32;
-	background: #dcd9cf;
-	float: left;
-	height: 28px;
-	width: 4rem;
-}
-.findButton.left{
-	border-right: none;
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
-}
-.findButton.right{
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
-}
+
 .mint-swipe{
 	height: 25vh;
 }
@@ -109,8 +100,10 @@ export default {
 	width: 100%;
 }
 
-..am-tabs-bd{
+.am-tabs-bd{
 	border: none;
+	z-index: -1;
+	padding-top: 44px;
 }
 .am-tabs-nav.am-nav.am-nav-tabs{
 	display: flex;
@@ -118,6 +111,9 @@ export default {
 	align-items: center;
 	background: #dcd9cf;
 	color: #493d32;
+	position:fixed;
+	z-index: 100;
+	width: 100% 
 }
 .am-nav>li>a{
 	padding: .2rem .5rem;
@@ -127,5 +123,9 @@ export default {
 .am-nav-tabs>li.am-active>a, .am-nav-tabs>li.am-active>a:focus, .am-nav-tabs>li.am-active>a:hover{
 	background: pink;
 	border-radius: 7px;
+}
+
+.find{
+	overflow: auto; 
 }
 </style>
