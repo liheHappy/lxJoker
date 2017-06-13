@@ -12,7 +12,7 @@
 	  	</div>
 	  	<div class="am-u-sm-8">
 	  		<a href="" class="am-u-sm-4">
-	  			<span>0</span>
+	  			<span>1</span>
 	  			<span>粉丝</span>
 	  		</a>
 	  		<a href="" class="am-u-sm-4">
@@ -121,7 +121,7 @@ export default {
 		background: none;
 	}
 	.lhactive{
-		border-bottom:2px solid #493d32;
+		border-bottom:2px solid hotpink;
 		margin-bottom: 1px;
 		display: inline-block; 
 	}
