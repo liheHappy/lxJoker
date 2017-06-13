@@ -1,6 +1,6 @@
 <template>
   <div class="aggrement">
-    <!-- <mt-header fixed title="内涵段子用户使用协议"></mt-header> -->
+    <mt-header fixed title="内涵段子用户使用协议"></mt-header>
     <h3>用户服务协议</h3>
     <span>版本生效日期：2016年6月</span>
 	<p>欢迎您使用内涵段子及内涵社区平台（以下简称“本平台”）服务！
@@ -158,15 +158,12 @@ B. 被投诉信息对权利人人身权益构成侵权的事实和详细理由�
 1、权利人应提供经签章或签名的书面通知书及相关证明材料的扫描件。为确保权利人提供相关材料的真实性和有效性，内涵段子认为必要时，可要求您上述材料的原件，届时还请配合提供。
 2、若权利人确有理由不能提供证明材料原件的，应提供其复印件（复印件上应有权利人签章）。
 3、若证明材料是在外国或港澳台地区形成的，应按照法律规定在所在国家或地区进行公证认证或其他法律要求的证明程序。
-4、 若权利人已经对被投诉人提起行政或司法争议解决程序的，请将通知书和相关受理证明、提交给争议解决机构的证据一并提交内涵段子，这将有利于对投诉的处理。
-三、通知方式
-权利人应按以下方式向内涵段子送达投诉通知书：
+	4、 若权利人已经对被投诉人提起行政或司法争议解决程序的，请将通知书和相关受理证明、提交给争议解决机构的证据一并提交内涵段子，这将有利于对投诉的处理。</p>
+	<h4>三、通知方式</h4>
+<p class="lastPra">权利人应按以下方式向内涵段子送达投诉通知书：
 	投诉受理邮箱：jubao@bytedance.com</p>
 
-		<!-- <div id="box">
-			<my-footer></my-footer>
-		</div> -->
-		<!-- <my-footer></my-footer> -->
+	<hx-agree-bottom></hx-agree-bottom>
   </div>
 </template>
 
@@ -174,32 +171,28 @@ B. 被投诉信息对权利人人身权益构成侵权的事实和详细理由�
 import Vue from 'vue'
 export default {
   name: 'Aggrement',
-  methods:{
-  	goBack(){
-  		history.back();  	
+  components:{
+  	"hx-agree-bottom":{
+  		template:`<footer>
+  				<router-link to="/Field">
+  				<button type="button" class="am-btn am-btn-secondary am-btn-block">同意</button>
+  				</router-link>
+  				</footer>`
   	}
   }
 }
-
-// new Vue({
-// 	el:"#box",
-// 	components:{
-// 		"my-footer":{
-// 			template:`<footer><button>同意</button></footer>`
-// 		}
-// 	}
-// })
 </script>
-<style>
+<style scoped>
 .aggrement{
 	letter-spacing: 1px;
-	position: absolute;
+	position: relative;
 	z-index: 100;
 	background: #fff;
 }
 .aggrement h3{
 	text-align: center;
-	padding: 0.5rem 0;
+	padding: 2rem 0 0 0;
+	margin-bottom: 0;
 }
 .aggrement h4{
 	font-size: 1rem;
@@ -208,7 +201,6 @@ export default {
 	text-indent: 2rem;
 	font-size: 0.8rem;
 	color: #666;
-	padding: 0.2rem 0;
 }
 .aggrement span{
 	font-size: 0.8rem;
@@ -219,5 +211,13 @@ export default {
 .aggrement .underPra{
 	font-weight: bold;
 	text-decoration: underline;
+}
+footer{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+.lastPra{
+	margin-bottom: 4rem;
 }
 </style>
