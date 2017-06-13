@@ -121,7 +121,7 @@ export default {
 		background: none;
 	}
 	.lhactive{
-		border-bottom:2px solid #493d32;
+		border-bottom:2px solid hotpink;
 		margin-bottom: 1px;
 		display: inline-block; 
 	}
