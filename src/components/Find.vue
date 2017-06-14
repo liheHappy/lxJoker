@@ -29,7 +29,9 @@ export default {
   	"hx-header-tab":{
   		template:`<div class="am-tabs " data-am-tabs>
 				  <ul class="am-tabs-nav am-nav am-nav-tabs">
-				  	<span class="iconfont icon-sousuo-sousuo "></span>
+				  	<router-link to="/Searchwhat">
+				  		<span>你真是个好人</span>
+				  	</router-link>
 				  		<li></li>
 				  		<li></li>
 				  		<li class="am-active"><a href="#tab1">热吧</a></li>
@@ -53,7 +55,9 @@ export default {
 						</mt-swipe>
 				    	<hx-find-list></hx-find-list>
 				    </div>
-				    <div class="am-tab-panel" id="tab2">222</div>
+				    <div class="am-tab-panel" id="tab2">
+						
+				    </div>
 				  </div>
 				</div>`,
 		components:{
@@ -84,9 +88,6 @@ export default {
 						return res.data.head;
 					}).then((data)=>{
 						this.arr = data;
-						console.log(data[0].images)
-						//console.log(this.arr);
-						//console.log(data.head);
 					})
 				}
 		  	}
@@ -134,9 +135,8 @@ export default {
 	margin: .5rem 0;
 	color: #493d32;
 }
-.am-nav-tabs>li.am-active>a, .am-nav-tabs>li.am-active>a:focus, .am-nav-tabs>li.am-active>a:hover{
-	background: pink;
-	border-radius: 7px;
+.am-tabs-nav.am-nav.am-nav-tabs a{
+	color: #493d32;
 }
 .find{
 	overflow: auto; 
@@ -187,4 +187,10 @@ export default {
 	font-weight: normal;
 	color: #ff6721;
 }
+.find #tab2{
+	background: url('./../../static/img/jie1.png') no-repeat;
+	height: 30vh;
+	width: 100%;
+	background-size: 100% 100%;
+} 
 </style>
