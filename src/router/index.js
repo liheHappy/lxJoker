@@ -9,10 +9,6 @@ import Aggrement from '@/components/Aggrement'
 import Text from '@/components/Text'
 import Pic from '@/components/Pic'
 import Video from '@/components/Video'
-import Book from '@/components/Book'
-import Playing from '@/components/Playing'
-import Collect from '@/components/Collect'
-import Comment from '@/components/Comment'
 import Textshow from '@/components/Textshow'
 import Picshow from '@/components/Picshow'
 import Field from '@/components/Field'
@@ -59,29 +55,7 @@ export default new Router({
     {
       path: '/My',
       name: 'My',
-      component: My,
-      children:[
-        {
-          path: '/My',
-          name: 'Book',
-          component: Book
-        },
-        {
-          path: '/Playing',
-          name: 'Playing',
-          component: Playing
-        },
-        {
-          path: '/Collect',
-          name: 'Collect',
-          component: Collect
-        },
-        {
-          path: '/Comment',
-          name: 'Comment',
-          component: Comment
-        }
-      ]
+      component: My
     },
     {
       path: '/Write',
