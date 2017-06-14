@@ -30,14 +30,37 @@ export default{
 			template:`
 				<div>
 				  <div class="logininput registerTop">
-				    <mt-field label="+86" type="tel"></mt-field>
+				    <mt-field label="+86" type="number"></mt-field>
 				    <router-link class="checkBox" to="/Aggrement">
 						<input type="checkbox" checked="checked" />我同意《内涵段子用户使用协议》
 					</router-link>
-				    <mt-button size="large" type="danger">下一步</mt-button>
+					<router-link :to="path">
+				    	<mt-button size="large" type="danger" @click="nextStep">下一步</mt-button>
+				    </router-link>
 				  </div>
 				</div>
-			`
+			`,
+			data(){
+				return {
+					path:""
+				}
+			},
+			methods:{
+				nextStep(){
+					var tel=document.querySelector("input[type=number]").value;
+					if(tel!=""){
+						var reg=/^1[345678][0-9]{9}$/;
+						if(reg.test(tel)==true){
+							localStorage.registerTel=tel;
+							this.path="/Setpass";
+						}else{
+							alert("输入合理的手机号")
+						}
+					}else{
+						alert("账号和密码不能为空");
+					}
+				}
+			}
 		}
 	}
 }
