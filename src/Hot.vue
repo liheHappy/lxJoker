@@ -11,31 +11,31 @@
         <mt-tab-item id="tab1">
           <router-link to="/" class="nounder">
             <a @click="isLocal" class="newA">
-            	<span class="am-icon-tachometer am-icon-sm"></span>
+            	<span class="am-icon-home am-icon-sm"></span>
               首页
             </a>
           </router-link>
         </mt-tab-item>
         <mt-tab-item id="tab2">
           <router-link to="/Find" class="nounder">
-              <span class="am-icon-diamond am-icon-sm"></span>
+              <span class="am-icon-globe am-icon-sm"></span>
               发现
           </router-link>
         </mt-tab-item>
         <mt-tab-item id="tab">
           <router-link to="/Write" class="nounder">
-            <b>+</b>
+            <b class="add">+</b>
           </router-link> 
         </mt-tab-item>
         <mt-tab-item id="tab3">
           <router-link to="/Message" class="nounder">
-              <span class="am-icon-comment-o am-icon-sm"></span>
+              <span class="am-icon-commenting am-icon-sm"></span>
               消息
           </router-link>
         </mt-tab-item>
         <mt-tab-item id="tab4">
           <router-link to="/My" class="nounder">
-            <span class="am-icon-at am-icon-sm"></span>
+            <span class="am-icon-child am-icon-sm"></span>
             我的
           </router-link>
         </mt-tab-item>
@@ -85,14 +85,15 @@ body{
 	margin-top: 4px;
 	font-size: 1.5rem;
 }
-.mint-tab-item-label b{
+.mint-tab-item-label .nounder .add{
 	display: block;
-	background: pink;
+	background: #ff8ba7;
 	color: #fff;
-	line-height: 35px;
-	height: 40px;
+	line-height: 2.4rem;
+	font-weight: normal;
+	height: 3.2rem;
 	border-radius: 10px;
-	font-size: 2.5rem;
+	font-size: 5rem;
 	margin-top: 3px;
 }
 .router-link-exact-active.router-link-active{
