@@ -127,7 +127,7 @@ export default {
 	color: #493d32;
 	position:fixed;
 	z-index: 100;
-	width: 100% 
+	width: 100%;
 }
 .am-nav>li>a{
 	padding: .2rem .5rem;
