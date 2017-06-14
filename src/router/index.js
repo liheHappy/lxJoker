@@ -15,6 +15,7 @@ import Field from '@/components/Field'
 import Login from '@/components/Login'
 import ForgetPass from '@/components/ForgetPass'
 import Register from '@/components/Register'
+import Set from '@/components/Set'
 
 Vue.use(Router)
 
@@ -96,6 +97,11 @@ export default new Router({
       path: '/Register',
       name: 'Register',
       component: Register
+    },
+    {
+      path: '/Set',
+      name: 'Set',
+      component: Set
     }
   ]
 })
