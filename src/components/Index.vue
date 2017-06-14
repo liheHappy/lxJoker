@@ -40,6 +40,8 @@ export default {
 						}
 						event.target.className="hxactive";
 					}
+
+
 				}
 			}
 		}
