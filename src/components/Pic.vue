@@ -7,6 +7,7 @@
 
 <script>
 import Vue from 'vue'
+import jsonp from 'jsonp'
 export default {
   	name: 'Pic',
 	components:{
@@ -40,11 +41,29 @@ export default {
 		  		}
 		  	},
 			created(){
-			    Vue.axios.get("../static/json/duanPic.json").then((res)=>{
-			      return res.data.data.data;
-			    }).then((data)=>{
-			      this.arr=data;
-			    })
+//			    Vue.axios.get("../static/json/duanPic.json").then((res)=>{
+//			      return res.data.data.data;
+//			    }).then((data)=>{
+//			      this.arr=data;
+//			    })
+				if(localStorage.picArr){
+					var arr = JSON.parse(localStorage.picArr);
+					this.arr = arr;
+				}else{
+					var url = "http://m.neihanshequ.com/pic/?is_json=1&app_name=neihanshequ_web&min_time=1497066078&csrfmiddlewaretoken=a66e8d138afdb05562b9c00dc6bca50b";
+					jsonp(url,null,(err,res)=>{
+						if(err){
+							console.log("获取数据失败");
+						}else{
+							this.arr = res.data.data;
+							var str = JSON.stringify(this.arr)
+							localStorage.picArr = str;
+	//						console.log(this.arr)
+	//						console.log(s)
+						}
+	
+					})
+				}
 			}
 		}
 	}
