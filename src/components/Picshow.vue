@@ -59,7 +59,6 @@ export default {
 		},
 		created(){
 			var id=window.location.hash.replace("#/Picshow/","");
-			localStorage.picData=localStorage.picArr;
 		   	var arr=JSON.parse(localStorage.picArr);
 		    arr.map((item,index)=>{
 		     	if(item.group.group_id==id){
