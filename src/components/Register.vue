@@ -51,7 +51,7 @@ export default{
 					if(tel!=""){
 						var reg=/^1[345678][0-9]{9}$/;
 						if(reg.test(tel)==true){
-							localStorage.registerTel=tel;
+							localStorage.registerTel='{"tel":'+tel+'}';
 							this.path="/Setpass";
 						}else{
 							alert("输入合理的手机号")
