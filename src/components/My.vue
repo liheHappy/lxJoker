@@ -2,8 +2,13 @@
   <div class="my">
 		<mt-header>
 		  <mt-button slot="right">
-		  	<span class="iconfont icon-icon"></span>
-		  	<span class="iconfont icon-shezhi"></span>
+		  	<router-link class="Myset" to="/Set">
+		  		<span class="iconfont icon-icon"></span>
+		  	</router-link>
+		  	<router-link class="Myset" to="/Set">
+		  		<span class="iconfont icon-shezhi"></span>
+		  	</router-link>
+		  	
 		  </mt-button>
 		</mt-header>
 		<!--头像组件-->
@@ -103,6 +108,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
+.Myset{
+	color: #493d32;
+	font-weight: normal;
+}
+.Myset .iconfont{
+	font-size: 26px;
+}
+.Myset .icon-shezhi{
+	font-size: 22px;
+}
 .my{
 	overflow-x: hidden;
 	height: 100vh;
