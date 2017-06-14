@@ -212,7 +212,7 @@ export default {
 	font-weight: bold;
 	text-decoration: underline;
 }
-footer{
+.aggrement footer{
 	position: fixed;
 	bottom: 0;
 	width: 100%;
