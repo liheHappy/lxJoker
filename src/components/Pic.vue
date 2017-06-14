@@ -34,6 +34,7 @@ export default {
 						</div>
 						</router-link>
 					</div>
+					<hx-refresh @toFather="getData"></hx-refresh>
 				</div>`,
 		  	data(){
 		  		return {
@@ -64,6 +65,44 @@ export default {
 	
 					})
 				}
+			},
+			methods:{
+				getData(data){
+					this.arr=data;
+					var refDom=document.querySelector(".am-icon-refresh");
+					refDom.className="am-icon-refresh";
+				}
+			},
+			components:{
+				"hx-refresh":{
+					template:`
+						<p class="refresh" @click="goRefresh">
+							<i class="am-icon-refresh"></i>
+						</p>
+						`,
+					methods:{
+						goRefresh(){
+							if(localStorage.picArr){
+								localStorage.removeItem("picArr");
+							}
+							var refDom=document.querySelector(".am-icon-refresh");
+							refDom.classList="am-icon-refresh am-icon-spin";
+							
+							var url="http://m.neihanshequ.com/pic/?is_json=1&app_name=neihanshequ_web&min_time=1497066078&csrfmiddlewaretoken=a66e8d138afdb05562b9c00dc6bca50b";
+						  	jsonp(url,null,(err,res)=>{
+						  		if(err){
+						  			console.log("数据获取失败");
+						  		}else{
+						  			var data=res.data.data;
+						  			this.$emit("toFather",data);
+						  			var str=JSON.stringify(res.data.data)
+						  			localStorage.picArr=str;
+						  		}
+						  	})
+						}
+					}
+
+				}
 			}
 		}
 	}
@@ -72,7 +111,7 @@ export default {
 
 <style>
 .pic{
-	padding-top: 56px;
+	padding-top: 41px;
 }
 .txt{
 	background: #fff;
