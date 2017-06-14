@@ -10,7 +10,9 @@
 		<hx-my-means></hx-my-means>
 		<!--选项卡组件-->
 	  	<hx-my-tabbar></hx-my-tabbar>
-	  	<router-view></router-view>
+
+		
+
   </div>
 </template>
 
@@ -25,20 +27,38 @@ export default {
 	components:{
 		"hx-my-tabbar":{
 			template:`<div>
-				<ul class="am-nav am-nav-pills am-nav-justify">
-				  <li>
-				  	<router-link to="/My"><span class="lhactive" @click="toggleClass">投稿</span></router-link>
-				  </li>
-				  <li>
-				  	<router-link to="/Playing"><span @click="toggleClass">直播</span></router-link>
-				  </li>
-				  <li>
-				  	<router-link to="/Collect"><span @click="toggleClass">收藏</span></router-link>
-				  </li>
-				  <li>
-				  	<router-link to="/Comment"><span @click="toggleClass">评论</span></router-link>
-				  </li>
-				</ul></div>`,
+						<div class="am-tabs" data-am-tabs>
+						  <ul class="am-tabs-nav am-nav am-nav-tabs">
+						  	  <li class="zhanPos"></li>
+							  <li  class="am-active">
+							  	<a href="#tab1"><span class="lhactive" @click="toggleClass">投稿</span></a>
+							  </li>
+							  <li>
+							  	<a href="#tab2"><span @click="toggleClass">直播</span></a>
+							  </li>
+							  <li>
+							  	<a href="#tab3"><span @click="toggleClass">收藏</span></a>
+							  </li>
+							  <li>
+							  	<a href="#tab4"><span @click="toggleClass">评论</span></a>
+							  </li>
+						  </ul>
+						  <div class="am-tabs-bd">
+						    <div class="am-tab-panel am-fade am-in am-active" id="tab1">
+						      置身人群中<br>你只需要被淹没 享受 沉默<br>退到人群后<br>你只需给予双手 微笑 等候
+						    </div>
+						    <div class="am-tab-panel am-fade" id="tab2">
+						      走在忠孝东路<br>徘徊在茫然中<br>在我的人生旅途<br>选择了多少错误<br>我在睡梦中惊醒<br>感叹悔言无尽<br>恨我不能说服自己<br>接受一切教训<br>让生命去等候<br>等候下一个漂流<br>让生命去等候<br>等候下一个伤口
+						    </div>
+						    <div class="am-tab-panel am-fade" id="tab3">
+						      我就这样告别山下的家，我实在不愿轻易让眼泪留下。我以为我并不差不会害怕，我就这样自己照顾自己长大。我不想因为现实把头低下，我以为我并不差能学会虚假。怎样才能够看穿面具里的谎话？别让我的真心散的像沙。如果有一天我变得更复杂，还能不能唱出歌声里的那幅画？
+						    </div>
+						    <div class="am-tab-panel am-fade" id="tab4">
+						       你还要我怎样
+						    </div>
+						  </div>
+						</div>
+					   </div>`,
 			methods:{
 				toggleClass:function(event){
 					if(event.target.className=="lhactive"){
@@ -55,28 +75,28 @@ export default {
 		"hx-my-means":{
 			template:`
 				<div class="am-g">
-			  	<div class="am-u-sm-4">
-			  		<a href="" class="am-icon-btn am-icon-user"></a>
+				  	<div class="am-u-sm-4">
+				  		<a href="" class="am-icon-btn am-icon-user"></a>
+				  	</div>
+				  	<div class="am-u-sm-8">
+				  		<a href="" class="am-u-sm-4">
+				  			<span>1</span>
+				  			<span>粉丝</span>
+				  		</a>
+				  		<a href="" class="am-u-sm-4">
+				  			<span>0</span>
+				  			<span>关注</span>
+				  		</a>
+				  		<a href="" class="am-u-sm-4">
+				  			<span>0</span>
+				  			<span>积分</span>
+				  		</a>
+				  		<router-link class="field" to="/Field">
+				  			<mt-button type="danger" size="large" plain>立即登录</mt-button>
+				  		</router-link>
+				  	</div>
 			  	</div>
-			  	<div class="am-u-sm-8">
-			  		<a href="" class="am-u-sm-4">
-			  			<span>1</span>
-			  			<span>粉丝</span>
-			  		</a>
-			  		<a href="" class="am-u-sm-4">
-			  			<span>0</span>
-			  			<span>关注</span>
-			  		</a>
-			  		<a href="" class="am-u-sm-4">
-			  			<span>0</span>
-			  			<span>积分</span>
-			  		</a>
-			  		<router-link class="field" to="/Field">
-			  			<mt-button type="danger" size="large" plain>立即登录</mt-button>
-			  		</router-link>
-			  	</div>
-			  </div>
-			`
+				`
 		}
 	}
 }
@@ -112,27 +132,28 @@ export default {
 		text-align: center;
 		color: black;
 	}
-	.my .am-nav.am-nav-pills.am-nav-justify{
-		margin-top: 0.3rem;
-		background: #FFFFFF;
-	}
-	.am-nav.am-nav-pills.am-nav-justify{
-		background: #dcd9cf;
-	}
-	.am-nav.am-nav-pills.am-nav-justify li{
-		text-align: center;
-		height: 40px;
-		line-height: 40px;
-	}
-	.am-nav.am-nav-pills.am-nav-justify>li>a{
-		color: black;
-	}
-	.am-nav.am-nav-pills.am-nav-justify>li>a:hover{
-		background: none;
-	}
 	.lhactive{
 		border-bottom:2px solid hotpink;
 		margin-bottom: 1px;
 		display: inline-block; 
+	}
+	.am-nav-tabs{
+		border: none;
+	}
+	.am-tabs-bd{
+		border: none;
+	}
+	.am-nav-tabs>li.am-active>a, .am-nav-tabs>li.am-active>a:focus, .am-nav-tabs>li.am-active>a:hover{
+		border: none;
+	}
+	.am-tabs-nav.am-nav.am-nav-tabs{
+		background: #fff;
+	}
+	.am-nav-tabs>li>a{
+		color: #555;
+	}
+	.zhanPos{
+		width: 2rem;
+		height: 2rem;
 	}
 </style>
