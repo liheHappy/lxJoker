@@ -125,52 +125,52 @@ export default {
 	background: url(../../static/img/login1.png) no-repeat 0 22rem;
 	background-size: contain;
 }
-.am-g{
+.my .am-g{
 	background: #FFFFFF;
 	padding-top: 1rem;
 	padding-bottom: 1rem;
 }
 
-.am-icon-btn{
+.my .am-icon-btn{
 	width: 8rem;
 	height: 8rem;
 	font-size: 10rem;
 	line-height: 8.1rem;
 	color: #FFFFFF;
 }
-.am-u-sm-8 .am-u-sm-4{
+.my .am-u-sm-8 .am-u-sm-4{
 	margin-bottom: 1rem;
 }
-.am-u-sm-8 .am-u-sm-4 span{
+.my .am-u-sm-8 .am-u-sm-4 span{
 	display: block;
 	text-align: center;
 	color: black;
 }
-.lhactive{
+.my .lhactive{
 	border-bottom:2px solid hotpink;
 	margin-bottom: 1px;
 	display: inline-block; 
 }
-.mynav .am-tabs-bd #tab1{
+.my .mynav .am-tabs-bd #tab1{
 	background: #eeeeee;
 }
-.am-tabs-bd{
+.my .am-tabs-bd{
 	border: none;
 }
-.mynav>.am-nav-tabs>li.am-active>a, .am-nav-tabs>li.am-active>a:focus, .am-nav-tabs>li.am-active>a:hover{
+.my .mynav>.am-nav-tabs>li.am-active>a, .am-nav-tabs>li.am-active>a:focus, .am-nav-tabs>li.am-active>a:hover{
 	background: #FFFFFF !important;
 	border: none;
 }
 
-.am-nav-tabs>li>a{
+.my .am-nav-tabs>li>a{
 	color: #555;
 	padding: .2rem .5rem;
 }
-.zhanPos{
+.my .zhanPos{
 	width: 2rem;
 	height: 2rem;
 }
-.mynav>.am-tabs-nav.am-nav.am-nav-tabs{
+.my .mynav>.am-tabs-nav.am-nav.am-nav-tabs{
 	background: #FFFFFF;
 	border: none;
 	display: flex;
