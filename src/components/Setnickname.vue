@@ -30,12 +30,12 @@ export default{
 			template:`
 				<div>
 				  <div class="logininput registerTop">
-				    <mt-field label="+86" type="number"></mt-field>
-				    <router-link class="checkBox" to="/Aggrement">
-						<input type="checkbox" checked="checked" />我同意《内涵段子用户使用协议》
-					</router-link>
+				  	<p class="iconHome">
+						<span class="am-icon-btn am-icon-user am-icon-sm"></span>
+				  	</p>	
+				    <mt-field label="用户名" type="text"></mt-field>
 					<router-link :to="path">
-				    	<mt-button size="large" type="danger" @click="nextStep">下一步</mt-button>
+				    	<mt-button size="large" type="danger" @click="nextStep">完成</mt-button>
 				    </router-link>
 				  </div>
 				</div>
@@ -47,7 +47,20 @@ export default{
 			},
 			methods:{
 				nextStep(){
-					
+					var username=document.querySelector("input[type=text]").value;
+					if(username){
+						var obj=JSON.parse(localStorage.register);
+						obj.username=username;//将用户名添加至对象
+						localStorage.user=JSON.stringify(obj);//添加至user的登录信息，作为cookie判断
+						localStorage.flag=true;
+						localStorage.removeItem("register");
+						this.path="/My";
+					}else{
+						var test=confirm("确定使用手机号码作为用户名");
+						if(test==true){
+							this.path="/My";
+						}
+					}
 				}
 			}
 		}
@@ -56,26 +69,46 @@ export default{
 </script>
 
 <style>
-.registerTop{
+.setnickname .registerTop{
 	padding-top: 60px;
 }
-.checkBox{
+.setnickname .checkBox{
 	color: #999;
 	font-size: 1.5rem;
 	display: block;
 	margin: .5rem 0;
 	margin-left: 5vw;
 }
-.mint-button--large{
+.setnickname .mint-button--large{
 	width: 90%;
 	margin: 0 auto;
 	margin-top: 1rem;
 }
-.register.posi{
+.setnickname .register.posi{
 	height: 100vh;
 	position: relative;
 	background: #efeeee;
 	width: 100%;
 	z-index: 10;
+}
+.setnickname .am-icon-btn{
+	color: #ccc;
+	width: 4rem;
+	height: 4rem;
+}
+.setnickname .iconHome{
+	background: #fff;
+	width: 4rem;
+	height: 4rem;
+	border-radius: 100%;
+	text-align: center;
+	margin: 1rem auto;
+}
+
+.setnickname .am-icon-btn.am-icon-user.am-icon-sm{
+	background: #fff;
+}
+.setnickname .am-icon-sm:before{
+	color: #ccc;
 }
 </style>
