@@ -17,6 +17,7 @@ import ForgetPass from '@/components/ForgetPass'
 import Register from '@/components/Register'
 import Set from '@/components/Set'
 import Setpass from '@/components/Setpass'
+import Setnickname from '@/components/Setnickname'
 
 Vue.use(Router)
 
@@ -108,6 +109,11 @@ export default new Router({
       path: '/Setpass',
       name: 'Setpass',
       component: Setpass
+    },
+    {
+      path: '/Setnickname',
+      name: 'Setnickname',
+      component: Setnickname
     }
   ]
 })
