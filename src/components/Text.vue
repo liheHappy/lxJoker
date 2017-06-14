@@ -2,6 +2,8 @@
 	<div class="text">
 		<!-- 段子页面 -->
 		<hx-text-list></hx-text-list>
+		<!-- 刷新标签 am-icon-spin -->
+		
 	</div>
 </template>
 
@@ -33,6 +35,7 @@ export default {
 								</div>
 							</router-link>
 						</div>
+						<hx-refresh @toFather="getData"></hx-refresh>
 					</div>`,
 		  	data(){
 		  		return {
@@ -60,9 +63,46 @@ export default {
 				  			localStorage.textArr=str;
 				  		}
 				  	})
-
 			    }
 			    
+			},
+			methods:{
+				getData(data){
+					this.arr=data;
+					var refDom=document.querySelector(".am-icon-refresh");
+					refDom.className="am-icon-refresh";
+				}
+			},
+			components:{
+				"hx-refresh":{
+					template:`
+						<p class="refresh" @click="goRefresh">
+							<i class="am-icon-refresh"></i>
+						</p>
+						`,
+					methods:{
+						goRefresh(){
+							if(localStorage.textData){
+								localStorage.removeItem("textData");
+							}
+							var refDom=document.querySelector(".am-icon-refresh");
+							refDom.classList="am-icon-refresh am-icon-spin";
+							
+							var url="http://m.neihanshequ.com/?is_json=1&app_name=neihanshequ_web&min_time=1497066604&csrfmiddlewaretoken=a66e8d138afdb05562b9c00dc6bca50b";
+						  	jsonp(url,null,(err,res)=>{
+						  		if(err){
+						  			console.log("数据获取失败");
+						  		}else{
+						  			var data=res.data.data;
+						  			this.$emit("toFather",data);
+						  			var str=JSON.stringify(res.data.data)
+						  			localStorage.textArr=str;
+						  		}
+						  	})
+						}
+					}
+
+				}
 			}
 		}
 	}
@@ -124,6 +164,21 @@ export default {
 .txt div i{
 	padding: .8rem;
 	color: #ccc;
+}
+.index .am-icon-refresh{
+	font-size: 2.5rem;
+}
+.index .refresh{
+	position: fixed;
+	bottom: 4rem;
+	right: 2rem;
+	background: #ccc;
+	height: 3rem;
+	width: 3rem;
+	text-align: center;
+	line-height: 3rem;
+	border-radius: 100%;
+	z-index: 100;
 }
 </style>
 
