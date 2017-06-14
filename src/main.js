@@ -4,7 +4,7 @@ import Vue from 'vue'
 import $ from 'jquery'
 import Hot from './Hot'
 import Mint from 'mint-ui'
-import { Tabbar,TabItem,Header,TabContainer,TabContainerItem,Button,Swipe, SwipeItem,Checklist } from 'mint-ui';
+import { Tabbar,TabItem,Header,TabContainer,TabContainerItem,Button,Swipe, SwipeItem,Checklist,Search } from 'mint-ui';
 import 'mint-ui/lib/style.css'
 import 'amazeui/dist/css/amazeui.min.css'
 import 'amazeui/dist/js/amazeui.min.js'
@@ -24,6 +24,7 @@ Vue.component(Button.name, Button);
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 Vue.component(Checklist.name, Checklist);
+Vue.component(Search.name, Search);
 
 
 Vue.use(Mint);
@@ -36,5 +37,5 @@ new Vue({
   el: '#app',
   router,
   template: '<Hot/>',
-  components: { Hot,Tabbar,TabItem,Header,TabContainer,TabContainerItem,Button,Swipe,SwipeItem,Checklist}
+  components: { Hot,Tabbar,TabItem,Header,TabContainer,TabContainerItem,Button,Swipe,SwipeItem,Checklist,Search}
 })
