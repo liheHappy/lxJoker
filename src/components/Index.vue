@@ -2,7 +2,6 @@
   <div class="index">
 		<!-- 头部选项卡 -->
   		<hx-tabbar></hx-tabbar>
-
 		<router-view></router-view>
 		
   </div>
@@ -40,14 +39,9 @@ export default {
 						}
 						event.target.className="hxactive";
 					}
-
-
 				}
 			}
 		}
-	},
-	computed:{
-		
 	}
 }
 </script>
@@ -80,4 +74,7 @@ export default {
 	margin-bottom: .5rem;
 	color: #000;
 }
+
+
+
 </style>
