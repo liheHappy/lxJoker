@@ -1,8 +1,12 @@
 <template>
   <div id="hot">
+    <!-- 加载动画 -->
+    <!-- <div id="loading" v-if="show" class="am-animation-fade am-animation-reverse"></div> -->
+
     <div class="view">
       <router-view></router-view>
     </div>
+    <!-- 底部选项卡组件 -->
     <mt-tabbar v-model="selected">
         <mt-tab-item id="tab1">
           <router-link to="/" class="nounder">
@@ -45,14 +49,21 @@ export default {
   name: 'Hot',
   data(){
     return {
-      selected:""
+      selected:"",
+      show:true
     }
+  },
+  created(){
+    
   },
   methods:{
     isLocal(){
           if(localStorage.textData){
             localStorage.removeItem("textData");
           }
+    },
+    loadingImg(){
+        this.show=!this.show;
     }
   }
 }
@@ -109,4 +120,19 @@ body{
   color: #874c0d;
   background: none;
 }
+#loading{
+  background: url('./../static/img/index.png') no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* .mint-cell-swipe .mint-cell-wrapper, .mint-cell-swipe .mint-cell-left, .mint-cell-swipe .mint-cell-right {
+    -webkit-transition: -webkit-transform 1000ms ease-in-out;
+    transition: -webkit-transform 1000ms ease-in-out;
+    transition: transform 1000ms ease-in-out;
+    transition: transform 1000ms ease-in-out, -webkit-transform 1000ms ease-in-out;
+} */
 </style>
