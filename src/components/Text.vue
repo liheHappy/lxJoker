@@ -125,6 +125,7 @@ export default {
 	margin-top: .5rem;
 }
 .txt-header{
+	color: #666666;
 	padding-top: .5rem;
 	height: 40px;
 	line-height: 40px;
@@ -136,24 +137,29 @@ export default {
 	margin-right: 0.5rem;
 }
 .hasBorder{
-	border: 1px solid #000;
+	border: 1px solid #333;
+	color: #333333;
+	border-radius: 0.2rem;
+	font-size: 2rem;
 	height: 16px;
 	width: 16px;
 	float: right;
 	text-align: center;
-	line-height: 12px;
+	line-height: 0.7rem;
 	margin-top: 11px;
 	margin-right: 1rem;
 }
 .am-article-lead{
 	margin: 0;
 	background: none;
+	color: #333333;
 }
-.neihan{
-	border: 1px solid #ccc;
-	background: #eee;
-	border-radius: 5px;
-	color: #996c33;
+.am-article-lead .neihan{
+	border: 1px solid #6b5547;
+	white-space: nowrap;
+	background: #f5f5f5;
+	border-radius: 4px;
+	color: #6b5547;
 	padding:.1rem .3rem;
 	margin: .2rem .3rem;
 	font-size: .8rem;
@@ -170,14 +176,16 @@ export default {
 }
 .index .refresh{
 	position: fixed;
+	color: #6B5547;
 	bottom: 4rem;
 	right: 2rem;
-	background: #ccc;
+	background: #ffffff;
 	height: 3rem;
 	width: 3rem;
 	text-align: center;
-	line-height: 3rem;
+	line-height: 2.5rem;
 	border-radius: 100%;
+	border: 2px solid #eeeeee;
 	z-index: 100;
 }
 </style>
