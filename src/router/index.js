@@ -18,6 +18,7 @@ import Register from '@/components/Register'
 import Set from '@/components/Set'
 import Setpass from '@/components/Setpass'
 import Setnickname from '@/components/Setnickname'
+import Search from '@/components/Search'
 
 Vue.use(Router)
 
@@ -114,6 +115,11 @@ export default new Router({
       path: '/Setnickname',
       name: 'Setnickname',
       component: Setnickname
+    },
+    {
+      path: '/Search',
+      name: 'Search',
+      component: Search
     }
   ]
 })
