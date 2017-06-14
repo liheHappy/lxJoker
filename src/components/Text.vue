@@ -111,7 +111,7 @@ export default {
 
 <style>
 .text{
-	padding-top: 56px;
+	padding-top: 41px;
 }
 .txt a{
 	background: #fff;
@@ -149,7 +149,8 @@ export default {
 	margin-top: 11px;
 	margin-right: 1rem;
 }
-.am-article-lead{
+.text .am-article-lead{
+	border: none;
 	margin: 0;
 	background: none;
 	color: #333333;
