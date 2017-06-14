@@ -36,25 +36,54 @@ export default {
 		"hx-Login-input":{
 			template:`
 				<div>
-				  <div class="logininput">
-				    <mt-field label="手机号" placeholder="请输入你的手机号" type="number"></mt-field>
-				    <mt-field label="密码" placeholder="输入密码" type="password"></mt-field>
+				  <div class="logininput marginTop">
+				  	<p>已向手机 {{tel}} 发送验证码</p>
+				    <mt-field placeholder="请输入验证码" type="number" >
+						<span class="repeatSend">重新发送</span>
+				    </mt-field>
+				    <mt-field placeholder="请设置密码(6-12为数字或字母)" type="password"></mt-field>
 				    <router-link :to="path">
-					    <mt-button size="large" type="danger" @click="injectData">
-					    	登录
+					    <mt-button size="large" type="danger" @click="isRegister">
+					    	提交
 					    </mt-button>
 				    </router-link>
-				    <router-link class="forget" to="/ForgetPass">忘记密码</router-link>
 				  </div>
 				</div>
 			`,
 			data(){
 				return {
-					path:""
+					path:"",
+					tel:""
 				}
 			},
 			methods:{
-					
+				isRegister(){
+					var yzm=document.querySelector("input[type=number]").value;
+					var pass=document.querySelector("input[type=password]").value;
+					if(yzm!=""&&pass!=""){
+						if(yzm.length==4){
+							if(pass.length>6&&pass.length<12){
+								var obj=JSON.parse(localStorage.registerTel);
+								obj.password=pass;
+								localStorage.register=JSON.stringify(obj);
+								localStorage.removeItem("registerTel");
+								this.path="/Setnickname";
+							}else{
+								alert("请合理设置密码");
+							}
+						}else{
+							alert("请输入四位验证码");
+						}
+					}else{
+						alert("请输入验证码或密码");
+					}
+
+				}
+
+			},
+			created(){
+				var obj=JSON.parse(localStorage.registerTel);
+				this.tel=obj.tel;
 			}
 		}
 	}
@@ -62,56 +91,23 @@ export default {
 </script>
 
 <style>
-.login.am-animation-slide-right{
-	height: 100vh;
-	width: 100%;
-	background: #f5f5f5;
-	position: absolute;
-	z-index: 1000;
+.setpass .marginTop{
+	padding-top: 49px;
+}
+.setpass .logininput p{
+	margin: .6rem 0;
 	text-align: center;
+	font-size: 1rem;
 }
-.login .logininput{
-	margin-top: 49px;
-	padding-top: 1rem;
-}
-.am-header .am-header-title{
-	font-size: 1.7rem;
-}
-.login .logininput .forget{
-	float: right;
-}
-.login .logininput .mint-button{
-	margin-top: 2rem;
-	width: 90vw;
-	margin-left: 5vw;
-}
-.mint-cell .mint-cell-wrapper{
-	padding: 0;
-}
-.mint-cell .mint-cell-wrapper .mint-cell-title{
+.setpass .mint-field-core{
 	padding-left: 1rem;
 }
-.login.am-animation-slide-right{
-	text-align: left;
-}
-.am-header-default .am-header-nav .register{
-	color: #874c0d;
-}
-.am-header.am-header-default{
-	background:#dcd9cf;
-	position: fixed;
-	z-index: 100;
-}
-.am-header-left.am-header-nav,.am-header-default .am-header-title,.am-header-right.am-header-nav{
-	color: #874c0d;
-}
-.aggrement{
-	color: black;
-}
-.mint-cell-text{
-	color: #000;
-}
-.mint-field-core{
-	color: #000;
+.setpass .repeatSend{
+	padding: .6rem 1rem;
+	background: pink;
+	font-size: .8rem;
+	color: #fff;
+	border-radius: 5px;
+	margin-right: 1rem;
 }
 </style>
