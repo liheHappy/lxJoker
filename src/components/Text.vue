@@ -40,21 +40,30 @@ export default {
 		  		}
 		  	},
 			created(){
-			    Vue.axios.get("../static/json/duanText.json").then((res)=>{
-			      return res.data.data.data;
-			    }).then((data)=>{
-			      this.arr=data;
-			    })
 
-			   //  var url="http://m.neihanshequ.com/?is_json=1&app_name=neihanshequ_web&min_time=1497066604&csrfmiddlewaretoken=a66e8d138afdb05562b9c00dc6bca50b";
-			  	// jsonp(url,null,(err,res)=>{
-			  	// 	if(err){
-			  	// 		console.log("数据获取失败");
-			  	// 	}else{
-			  	// 		this.arr=res.data.data;
-			  	// 	}
-			  	// })
+				//本地模拟数据
+			    // Vue.axios.get("../static/json/duanText.json").then((res)=>{
+			    //   return res.data.data.data;
+			    // }).then((data)=>{
+			    //   this.arr=data;
+			    // })
+			    if(localStorage.oldData){
+					var arr=JSON.parse(localStorage.oldData);
+					this.arr=arr;
+			    }else{
+			    	var url="http://m.neihanshequ.com/?is_json=1&app_name=neihanshequ_web&min_time=1497066604&csrfmiddlewaretoken=a66e8d138afdb05562b9c00dc6bca50b";
+				  	jsonp(url,null,(err,res)=>{
+				  		if(err){
+				  			console.log("数据获取失败");
+				  		}else{
+				  			this.arr=res.data.data;
+				  			var str=JSON.stringify(res.data.data)
+				  			localStorage.textArr=str;
+				  		}
+				  	})
 
+			    }
+			    
 			}
 		}
 	}
