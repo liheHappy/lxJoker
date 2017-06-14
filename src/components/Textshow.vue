@@ -54,7 +54,7 @@ export default {
 		},
 		created(){
 			var id=window.location.hash.replace("#/Textshow/","");
-			localStorage.oldData=localStorage.textArr;
+			localStorage.textData=localStorage.textArr;
 		   	var arr=JSON.parse(localStorage.textArr);
 		    arr.map((item,index)=>{
 		     	if(item.group.group_id==id){
@@ -99,7 +99,7 @@ export default {
 						    <header class="am-comment-hd">
 						      <div class="am-comment-meta">
 						        <a href="#link-to-user" class="am-comment-author">{{items.user_name}}</a>
-						   		<time>{{dataChange(items.create_time)}}</time>
+						   		<time>{{ dataChange(items.create_time) }}</time>
 						      </div>
 						      <div class="zanZhuan">
 						      	<i class="am-icon-thumbs-up">{{items.digg_count}}</i>
@@ -125,7 +125,15 @@ export default {
   		methods:{
   			dataChange(x){
   				var d=new Date(x*1000);
-  				return d.toLocaleDateString();
+  				return this.format(d);
+  			},
+  			format(date){
+				var y = date.getFullYear();  
+			    var m = date.getMonth() + 1;  
+			    m = m < 10 ? '0' + m : m;  
+			    var d = date.getDate();  
+			    d = d < 10 ? ('0' + d) : d;  
+			    return y + '-' + m + '-' + d; 
   			}
   		},
   		created(){
@@ -169,7 +177,7 @@ export default {
 					    <header class="am-comment-hd">
 					      <div class="am-comment-meta">
 					        <a href="#link-to-user" class="am-comment-author">{{items.user_name}}</a>
-					   		<time>{{dataChange(items.create_time)}}</time>
+					   		<time>{{ dataChange(items.create_time) }}</time>
 					      </div>
 					      <div class="zanZhuan">
 					      	<i class="am-icon-thumbs-up">{{items.digg_count}}</i>
@@ -193,7 +201,15 @@ export default {
   		methods:{
   			dataChange(x){
   				var d=new Date(x*1000);
-  				return d.toLocaleDateString();
+  				return this.format(d);
+  			},
+  			format(date){
+				var y = date.getFullYear();  
+			    var m = date.getMonth() + 1;  
+			    m = m < 10 ? '0' + m : m;  
+			    var d = date.getDate();  
+			    d = d < 10 ? ('0' + d) : d;  
+			    return y + '-' + m + '-' + d; 
   			}
   		},
   		created(){
