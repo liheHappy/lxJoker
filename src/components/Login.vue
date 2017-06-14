@@ -9,12 +9,12 @@
 
 <script>
 export default {
-  name: 'Login',
-  data () {
-    return {
+  	name: 'Login',
+  	data () {
+    	return {
     	
-    }
-  },
+    	}
+  	},
 	components:{
 		"hx-Login-header":{
 			template:`
@@ -42,21 +42,54 @@ export default {
 				  <div class="logininput">
 				    <mt-field label="手机号" placeholder="请输入你的手机号" type="number"></mt-field>
 				    <mt-field label="密码" placeholder="输入密码" type="password"></mt-field>
-				    <router-link to="/My">
-				    <mt-button size="large" type="danger">
-				    	登录
-				    </mt-button>
+				    <router-link :to="path">
+					    <mt-button size="large" type="danger" @click="injectData">
+					    	登录
+					    </mt-button>
 				    </router-link>
 				    <router-link class="forget" to="/ForgetPass">忘记密码</router-link>
 				  </div>
 				</div>
-			`
+			`,
+			data(){
+				return {
+					path:""
+				}
+			},
+			methods:{
+				injectData(){
+					var tel=document.querySelector("input[type=number]").value;
+					var pass=document.querySelector("input[type=password]").value;
+					//判断手机号码是否符合条件
+					if(tel!=""&&pass!=""){
+						var reg=/^1[345678][0-9]{9}$/;
+						if(reg.test(tel)==true){
+								if(pass.length>6&&pass.length<12){
+										this.path="/My";
+										//存储是否登录的状态
+										localStorage.flag=true;
+										//存储登录用户信息
+										var obj={
+											tel:tel,
+											password:pass
+										}
+										localStorage.user=JSON.stringify(obj);
+								}else{
+									alert("请输入合理的密码");
+								}
+						}else{
+							alert("输入合理的手机号")
+						}
+					}else{
+						alert("账号和密码不能为空");
+					}
+				}
+			}
 		}
 	}
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 .login.am-animation-slide-right{
 	height: 100vh;
