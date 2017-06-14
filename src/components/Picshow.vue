@@ -9,6 +9,8 @@
 	
 	<!-- 鲜评列表 -->
 	<hx-commentnew-list></hx-commentnew-list>
+	<!--评论-->
+	<hx-commentnew-input></hx-commentnew-input>
   </div>
 </template>
 
@@ -57,18 +59,14 @@ export default {
 		},
 		created(){
 			var id=window.location.hash.replace("#/Picshow/","");
-		  	//段子数据
-		  	Vue.axios.get("../static/json/duanPic.json").then((res)=>{
-		      return res.data.data.data;
-		    }).then((data)=>{
-		      data.map((item,index)=>{
-		      	if(item.group.group_id==id){
+			localStorage.picData=localStorage.picArr;
+		   	var arr=JSON.parse(localStorage.picArr);
+		    arr.map((item,index)=>{
+		     	if(item.group.group_id==id){
 		     		this.obj=item;
 		      	}
-		      })
 		    })
-		  }	
-
+			}
   	},
   	"hx-show-header":{
   		template:`<div>
@@ -95,7 +93,7 @@ export default {
   	},
   	"hx-commenthot-list":{
   		template:`<div class="list">
-  				<span class="commentHot">热门评论( {{num}} )</span>
+  				<span class="commentHot" v-if="show">热门评论( {{num}} )</span>
 		  		<div v-for="items in arr">
 				<article class="am-comment">
 				  <a href="#link-to-user-home">
@@ -105,7 +103,7 @@ export default {
 				    <header class="am-comment-hd">
 				      <div class="am-comment-meta">
 				        <a href="#link-to-user" class="am-comment-author">{{items.user_name}}</a>
-				   		<time datetime="2013-07-27T04:54:29-07:00" title="2013年7月27日 下午7:54 格林尼治标准时间+0800">2014-7-12 15:30</time>
+				   		<time>{{ dataChange(items.create_time) }}</time>
 				      </div>
 				      <div class="zanZhuan">
 				      	<i class="am-icon-thumbs-up">{{items.digg_count}}</i>
@@ -123,34 +121,65 @@ export default {
   		data(){
   			return {
   				arr:"",
-  				num:""
+  				num:"",
+  				show:true
+  			}
+  		},
+  		methods:{
+  			dataChange(x){
+  				var d=new Date(x*1000);
+  				return this.format(d);
+  			},
+  			format(date){
+				var y = date.getFullYear();  
+			    var m = date.getMonth() + 1;  
+			    m = m < 10 ? '0' + m : m;  
+			    var d = date.getDate();  
+			    d = d < 10 ? ('0' + d) : d;  
+			    return y + '-' + m + '-' + d; 
   			}
   		},
   		created(){
 		  	//段子评论的数据
-		  	// var id=window.location.hash.replace("#/Textshow/","");
-		  	// var url="http://m.neihanshequ.com/api/get_essay_comments/?app_name=neihanshequ_web&group_id="+id+"&offset=0&csrfmiddlewaretoken=a66e8d138afdb05562b9c00dc6bca50b";
-		  	// console.log(url)
-		  	// jsonp(url,null,(err,data)=>{
-		  	// 	if(err){
-		  	// 		console.log("数据获取失败");
-		  	// 	}else{
-		  	// 		console.log(data)
-		  	// 	}
-		  	// })
+		  	 var id=window.location.hash.replace("#/Picshow/","");
+		  	 var url="http://m.neihanshequ.com/api/get_essay_comments/?app_name=neihanshequ_web&group_id="+id+"&offset=0&csrfmiddlewaretoken=a66e8d138afdb05562b9c00dc6bca50b";
+		  	jsonp(url,null,(err,res)=>{
+		  		if(err){
+		  			console.log("数据获取失败");
+		  		}else{
+		  			var data=res.data.top_comments;
+		  			this.arr=data;
+		  			var len=this.arr.length
+		  			if(len!=0){
+		  				this.num=len;
+		  			}else{
+		  				this.show=!this.show;
+		  			}
+		  		}
+		  	})
 
-		  	Vue.axios.get("../static/json/picComment.json").then((res)=>{
-		  		//console.log(res.data.data)
-		      return res.data.data.top_comments;
-		    }).then((data)=>{
-		      this.arr=data;
-		      this.num=this.arr.length;
-		    })
+//		  	Vue.axios.get("../static/json/picComment.json").then((res)=>{
+//		  		//console.log(res.data.data)
+//		      return res.data.data.top_comments;
+//		    }).then((data)=>{
+//		      this.arr=data;
+//		      this.num=this.arr.length;
+//		    })
   		}
+  	},
+  	"hx-commentnew-input":{
+  		template:`
+				<div class="footP">
+					<p>
+						<span class="am-icon-pencil"></span>
+						<input type="text" placeholder="期待你的神评论" />
+					</p>
+				</div>
+  		`
   	},
   	"hx-commentnew-list":{
   		template:`<div class="list">
-  				<span class="commentHot">新鲜评论( {{num}} )</span>
+  				<span class="commentHot" v-if="show">新鲜评论( {{num}} )</span>
 		  		<div v-for="items in arr">
 				<article class="am-comment">
 				  <a href="#link-to-user-home">
@@ -160,7 +189,7 @@ export default {
 				    <header class="am-comment-hd">
 				      <div class="am-comment-meta">
 				        <a href="#link-to-user" class="am-comment-author">{{items.user_name}}</a>
-				   		<time datetime="2013-07-27T04:54:29-07:00" title="2013年7月27日 下午7:54 格林尼治标准时间+0800">2014-7-12 15:30</time>
+				   		<time>{{ dataChange(items.create_time) }}</time>
 				      </div>
 				      <div class="zanZhuan">
 				      	<i class="am-icon-thumbs-up">{{items.digg_count}}</i>
@@ -178,28 +207,49 @@ export default {
   		data(){
   			return {
   				arr:"",
-  				num:""
+  				num:"",
+  				show:true
+  			}
+  		},
+  		methods:{
+  			dataChange(x){
+  				var d=new Date(x*1000);
+  				return this.format(d);
+  			},
+  			format(date){
+				var y = date.getFullYear();  
+			    var m = date.getMonth() + 1;  
+			    m = m < 10 ? '0' + m : m;  
+			    var d = date.getDate();  
+			    d = d < 10 ? ('0' + d) : d;  
+			    return y + '-' + m + '-' + d; 
   			}
   		},
   		created(){
 		  	//段子评论的数据
-		  	// var id=window.location.hash.replace("#/Textshow/","");
-		  	// var url="http://m.neihanshequ.com/api/get_essay_comments/?app_name=neihanshequ_web&group_id="+id+"&offset=0&csrfmiddlewaretoken=a66e8d138afdb05562b9c00dc6bca50b";
-		  	// console.log(url)
-		  	// jsonp(url,null,(err,data)=>{
-		  	// 	if(err){
-		  	// 		console.log("数据获取失败");
-		  	// 	}else{
-		  	// 		console.log(data)
-		  	// 	}
-		  	// })
+		  	var id=window.location.hash.replace("#/Picshow/","");
+		  	var url="http://m.neihanshequ.com/api/get_essay_comments/?app_name=neihanshequ_web&group_id="+id+"&offset=0&csrfmiddlewaretoken=a66e8d138afdb05562b9c00dc6bca50b";
+		  	jsonp(url,null,(err,res)=>{
+		  		if(err){
+		  			console.log("数据获取失败");
+		  		}else{
+		  			var data=res.data.recent_comments;
+		  			this.arr=data;
+		  			var len=this.arr.length
+		  			if(len!=0){
+		  				this.num=len;
+		  			}else{
+		  				this.show=!this.show;
+		  			}
+		  		}
+		  	})
 
-		  	Vue.axios.get("../static/json/picComment.json").then((res)=>{
-		      return res.data.data.recent_comments;
-		    }).then((data)=>{
-		      this.arr=data;
-		      this.num=this.arr.length;
-		    })
+//		  	Vue.axios.get("../static/json/picComment.json").then((res)=>{
+//		      return res.data.data.recent_comments;
+//		    }).then((data)=>{
+//		      this.arr=data;
+//		      this.num=this.arr.length;
+//		    })
   		}
   	}
   }
