@@ -9,6 +9,12 @@
 	
 	<!-- 鲜评列表 -->
 	<hx-commentnew-list></hx-commentnew-list>
+	<div class="footP">
+		<p>
+			<span class="am-icon-pencil"></span>
+			<input type="text" placeholder="期待你的神评论" />
+		</p>
+	</div>
   </div>
 </template>
 
@@ -324,6 +330,9 @@ export default {
 .textshow .list{
 	background: #fff;
 }
+.textshow>div:nth-of-type(4){
+	margin-bottom: 38px;
+}
 .am-comment{
 	padding: 1rem .5rem;
 }
@@ -337,6 +346,32 @@ export default {
 .commentHot{
 	font-size: .5rem;
 	margin-left: .5rem;
+}
+.footP{
+	position: fixed;
+	width: 100%;
+	background: #FFFFFF;
+	z-index: 1000;
+	border-top: 1px solid #e5e5e5;
+	padding: 0.5rem 1% 0.5rem 1%;
+	bottom: 0;
+}
+.footP p{
+	margin: 0;
+	border: 1px solid #cccccc;
+}
+.footP p span{
+	display: inline-block;
+	width: 10%;
+	height: 10%;
+	text-align: center;
+	line-height: 2rem;
+	color: #cccccc;
+}
+.footP p input{
+	width: 88%;
+	height: 3rem;
+	border: none;
 }
 </style>
 
