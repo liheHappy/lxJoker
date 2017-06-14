@@ -49,22 +49,23 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 .am-nav.am-nav-pills.am-nav-justify{
-	background:#dcd9cf;
+	background: #dcd9cf;
+	z-index: 100;
 	position: fixed;
 }
 .am-nav.am-nav-pills.am-nav-justify li{
 	text-align: center;
-	height: 40px;
-	line-height: 40px;
+	height: 25px;
+	line-height: 25px;
 }
 .am-nav.am-nav-pills.am-nav-justify>li>a{
-	color: #874c0d;
+	color: #6b5547;
 }
 .am-nav.am-nav-pills.am-nav-justify>li>a:hover{
 	background: none;
 }
 .hxactive{
-	border-bottom:2px solid #493d32;
+	border-bottom:2px solid #6b5547;
 	margin-bottom: 1px;
 	display: inline-block; 
 }
