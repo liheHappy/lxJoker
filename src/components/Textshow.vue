@@ -9,12 +9,9 @@
 	
 	<!-- 鲜评列表 -->
 	<hx-commentnew-list></hx-commentnew-list>
-	<div class="footP">
-		<p>
-			<span class="am-icon-pencil"></span>
-			<input type="text" placeholder="期待你的神评论" />
-		</p>
-	</div>
+	
+	<!--评论标签-->
+	<hx-commentnew-input></hx-commentnew-input>
   </div>
 </template>
 
@@ -92,6 +89,16 @@ export default {
 				window.history.back();
 			}
 		}
+  	},
+  	"hx-commentnew-input":{
+  		template:`
+				<div class="footP">
+					<p>
+						<span class="am-icon-pencil"></span>
+						<input type="text" placeholder="期待你的神评论" />
+					</p>
+				</div>
+  		`
   	},
   	"hx-commenthot-list":{
   		template:`<div class="list">
