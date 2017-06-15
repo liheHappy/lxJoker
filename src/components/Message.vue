@@ -22,7 +22,7 @@ export default {
 			          消息
 			      </h1>
 			      <div class="am-header-right am-header-nav">
-			      	<router-link to="/Field">黑名单</router-link>
+			      	<router-link :to="path">黑名单</router-link>
 			      </div>
 			  </header>
 			  </div>`,
@@ -30,30 +30,56 @@ export default {
 			goBack(){
 				window.history.back();
 			}
+		},
+		data(){
+			return {
+				path:"/Field"
+			}
+		},
+		created(){
+			if(localStorage.user){
+				this.path="/"
+			}
 		}
   	},
   	"hx-message-list":{
   		template:`<div>
-		<ul class="am-list am-list-static am-list-border">
-	    	<router-link to="/Field">
-	    		<li><span><i class="am-icon-pencil am-icon-sm"></i></span>投稿互动<i class="am-icon-angle-right"></i></li>
-	    	</router-link>
-	    	<router-link to="/Field">
-	    		<li><span><i class="am-icon-bullhorn am-icon-sm"></i></span>系统消息<i class="am-icon-angle-right"></i></li>
-	    	</router-link>
-	    	<router-link to="/Field">
-	    		<li><span><i class="am-icon-heartbeat am-icon-sm"></i></span>粉丝关注<i class="am-icon-angle-right"></i></li>
-	    	</router-link>
-		</ul>
-	</div>`
-  	}
+					<ul class="am-list am-list-static am-list-border">
+				    	<router-link :to="path">
+				    		<li><span><i class="am-icon-pencil am-icon-sm"></i></span>投稿互动<i class="am-icon-angle-right"></i></li>
+				    	</router-link>
+				    	<router-link :to="path">
+				    		<li><span><i class="am-icon-bullhorn am-icon-sm"></i></span>系统消息<i class="am-icon-angle-right"></i></li>
+				    	</router-link>
+				    	<router-link :to="path">
+				    		<li><span><i class="am-icon-heartbeat am-icon-sm"></i></span>粉丝关注<i class="am-icon-angle-right"></i></li>
+				    	</router-link>
+					</ul>
+				</div>`,
+				data(){
+					return {
+						path:"/Field"
+					}
+				},
+				created(){
+					if(localStorage.user){
+						this.path="/"
+					}
+				}
+  			}
 
-  }
-}
+  		}
+	}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
+.message{
+	background: url('./../../static/img/jie2.png') no-repeat 0 50vh;
+	height: 90vh;
+	width: 100%;
+	background-size: contain;
+}
 .mint-button-text a{
 	text-decoration: none;
 	color: #493d32;
