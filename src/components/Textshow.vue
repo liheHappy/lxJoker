@@ -56,7 +56,7 @@ export default {
 			}
 		},
 		created(){
-			var id=window.location.hash.replace("#/Textshow/","");
+			var id=window.location.pathname.replace("/Textshow/","");
 			localStorage.textData=localStorage.textArr;
 		   	var arr=JSON.parse(localStorage.textArr);
 		    arr.map((item,index)=>{
@@ -150,7 +150,7 @@ export default {
   		},
   		created(){
 		  	//段子热门评论的数据
-		  	var id=window.location.hash.replace("#/Textshow/","");
+		  	var id=window.location.pathname.replace("/Textshow/","");
 		  	var url="http://m.neihanshequ.com/api/get_essay_comments/?app_name=neihanshequ_web&group_id="+id+"&offset=0&csrfmiddlewaretoken=a66e8d138afdb05562b9c00dc6bca50b";
 		  	
 		  	jsonp(url,null,(err,res)=>{
@@ -228,7 +228,7 @@ export default {
   		},
   		created(){
 		  	//段子新鲜评论的数据
-		  	var id=window.location.hash.replace("#/Textshow/","");
+		  	var id=window.location.pathname.replace("/Textshow/","");
 		  	var url="http://m.neihanshequ.com/api/get_essay_comments/?app_name=neihanshequ_web&group_id="+id+"&offset=0&csrfmiddlewaretoken=a66e8d138afdb05562b9c00dc6bca50b";
 		  	jsonp(url,null,(err,res)=>{
 		  		if(err){
