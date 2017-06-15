@@ -52,7 +52,6 @@ export default{
 						var obj=JSON.parse(localStorage.register);
 						obj.username=username;//将用户名添加至对象
 						localStorage.user=JSON.stringify(obj);//添加至user的登录信息，作为cookie判断
-						localStorage.flag=true;
 						localStorage.removeItem("register");
 						this.path="/My";
 					}else{

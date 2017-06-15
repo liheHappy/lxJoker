@@ -66,8 +66,6 @@ export default {
 						if(reg.test(tel)==true){
 								if(pass.length>6&&pass.length<12){
 										this.path="/My";
-										//存储是否登录的状态
-										localStorage.flag=true;
 										//存储登录用户信息
 										var obj={
 											tel:tel,

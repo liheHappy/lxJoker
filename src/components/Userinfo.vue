@@ -27,7 +27,6 @@
 				var demo=confirm("官人，您真的舍得离开奴家吗？");
 				if(demo==true){
 					if(localStorage.user){
-						localStorage.flag=false;
 						localStorage.removeItem("user");
 					}
 					this.isExit="/My";
