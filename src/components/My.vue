@@ -2,7 +2,7 @@
   <div class="my">
 		<mt-header>
 		  <mt-button slot="right">
-		  	<router-link class="Myset" to="/Set">
+		  	<router-link class="Myset" :to="path">
 		  		<span class="am-icon am-icon-shopping-bag"></span>
 		  	</router-link>
 		  	<router-link class="Myset" to="/Set">
@@ -12,8 +12,8 @@
 		  </mt-button>
 		</mt-header>
 		<!--头像组件-->
-		<!--<hx-my-means></hx-my-means>-->
-		<hx-my-data></hx-my-data>
+		<hx-my-means v-if="show"></hx-my-means>
+		<hx-my-data v-if="!show"></hx-my-data>
 
 		<!--选项卡组件-->
 	  <hx-my-tabbar></hx-my-tabbar>
@@ -23,12 +23,20 @@
 
 <script>
 export default {
-  name: 'My',
-  data(){
+  	name: 'My',
+  	data(){
 		return {
-			selected:"1"
+			selected:"1",
+			show:true,
+			path:"/Field"
 		}
-	},
+    },
+    created(){
+    	if(localStorage.user){
+		    this.show=!this.show;
+		    this.path="/Set"
+		}
+	},	
 	components:{
 		"hx-my-tabbar":{
 			template:`
@@ -49,21 +57,30 @@ export default {
 						  </li>
 					  </ul>
 						<div class="am-tabs-bd">
-					    <div class="am-tab-panel am-fade am-in am-active" id="tab1">
+					    <div class="am-tab-panel am-fade am-in am-active bgUrl" id="tab1">
 					      
 					    </div>
-					    <div class="am-tab-panel am-fade" id="tab2">
+					    <div class="am-tab-panel am-fade bgUrl" id="tab2">
 					      
 					    </div>
-					    <div class="am-tab-panel am-fade" id="tab3">
+					    <div class="am-tab-panel am-fade bgUrl" id="tab3">
 					      
 					    </div>
-					    <div class="am-tab-panel am-fade" id="tab4">
+					    <div class="am-tab-panel am-fade bgUrl" id="tab4">
 					      
 					    </div>
 					  </div>
 					</div>
 				</div>`,
+			created(){
+				//background: url(../../static/img/login1.png) no-repeat 0 22rem;
+				// $(".am-tab-panel.am-fade").css({
+				// 	"background":"url(../../static/img/jie3.png) no-repeat 0 0"
+				// })
+				// console.log(document.querySelector(".bgColor"))
+				// document.querySelector(".bgColor").style.background="red"
+	
+			},
 			methods:{
 				toggleClass:function(event){
 					if(event.target.className=="lhactive"){
@@ -81,7 +98,7 @@ export default {
 			template:`
 				<div class="am-g">
 			  	<div class="am-u-sm-4">
-				  	<router-link to="/Userinfo">
+				  	<router-link to="/Field">
 				  		<span class="am-icon-btn am-icon-user"></span>
 				  	</router-link>
 			  	</div>
@@ -115,7 +132,7 @@ export default {
 			  	</div>
 			  	<div class="am-u-sm-8">
 			  		<h4>
-			  			<span>王萌萌</span>
+			  			<span>{{this.username}}</span>
 			  			<i class="am-icon-mars"></i>
 			  		</h4>
 			  		<p class="am-icon-map-marker"> 北京</p>
@@ -146,7 +163,20 @@ export default {
 			  		万水千山总是情，没有签名可不行~~
 			  	</div>
 				</div>
-			`
+			`,
+			data(){
+				return {
+					username:""
+				}
+			},
+			created(){
+	    		var obj=JSON.parse(localStorage.user);
+	    		if(obj.username){
+	    			this.username=obj.username;
+	    		}else{
+	    			this.username=obj.tel;
+	    		}
+		    },
 		}
 	}
 }
@@ -170,9 +200,21 @@ export default {
 	overflow-x: hidden;
 	height: 100vh;
 	width: 100%;
+<<<<<<< HEAD
 	background: url(../../static/img/login1.png) no-repeat 0 25rem;
 	background-size: contain;
+=======
+>>>>>>> e7e155b2292b10d79a182eebaf07d2e59a8aee2d
 }
+
+.my .bgUrl{
+	height: 30vh;
+	margin: 4rem 0;
+	background: url(../../static/img/login1.png) no-repeat 0 0;
+	background-size: 100% 100%;
+}
+	
+
 .my .am-g{
 	background: #FFFFFF;
 	padding-top: 1rem;
@@ -200,9 +242,6 @@ export default {
 	border-bottom:2px solid hotpink;
 	margin-bottom: 1px;
 	display: inline-block; 
-}
-.my .mynav .am-tabs-bd #tab1{
-	background: #eeeeee;
 }
 .my .am-tabs-bd{
 	border: none;

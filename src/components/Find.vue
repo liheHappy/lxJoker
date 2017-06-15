@@ -107,7 +107,7 @@ export default {
 	height: 100%;
 	width: 100%;
 }
-#tab1{
+.find #tab1{
 	padding: 0;
 	background: #FFFFFF;
 	margin-bottom: 4.7rem;
