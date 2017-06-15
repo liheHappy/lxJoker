@@ -108,6 +108,9 @@ export default {
 }
 .login .logininput .forget{
 	float: right;
+	margin-right: 5vw;
+	margin-top: 1rem;
+	font-size: 1rem;
 }
 .login .logininput .mint-button{
 	margin-top: 2rem;
