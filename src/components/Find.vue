@@ -29,8 +29,8 @@ export default {
   	"hx-header-tab":{
   		template:`<div class="am-tabs " data-am-tabs>
 				  <ul class="am-tabs-nav am-nav am-nav-tabs">
-				  	<router-link to="/Searchwhat">
-				  		<span>你真是个好人</span>
+				  	<router-link to="/Search">
+				  		<span class="am-icon-search"></span>
 				  	</router-link>
 				  		<li></li>
 				  		<li></li>
@@ -38,7 +38,7 @@ export default {
 				    	<li><a href="#tab2">订阅</a></li>
 				    	<li></li>
 				    	<li></li>
-				   <span class="iconfont icon-dingwei"></span>
+				   <span class="am-icon-map-o"></span>
 				  </ul>
 				  <div class="am-tabs-bd">
 				    <div class="am-tab-panel am-active" id="tab1">
@@ -102,9 +102,6 @@ export default {
 
 .mint-swipe{
 	height: 25vh;
-}
-.mint-swipe-items-wrap{
-	background: green;
 }
 .mint-swipe-item img{
 	height: 100%;
