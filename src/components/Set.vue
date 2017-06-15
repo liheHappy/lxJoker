@@ -10,21 +10,21 @@
 		<div class="set2">
 			<span>字体大小</span>
 			<div data-am-widget="tabs" class="am-tabs am-tabs-default">
-      			<ul class="am-tabs-nav am-cf">
-		          <li class="am-active"><a>小</a></li>
-		          <li class=""><a>中</a></li>
-		          <li class=""><a>大</a></li>
-		     	</ul>
+				<div class="am-btn-group">
+				  <button type="button" class="am-btn am-btn-primary am-round">大</button>
+				  <button type="button" class="am-btn am-btn-primary am-round">中</button>
+				  <button type="button" class="am-btn am-btn-primary am-round">小</button>
+				</div>
 		 	</div>
 		</div>
 		<div class="set2 set3">
 			<span>2G/3G图片显示模式</span>
 			<div data-am-widget="tabs" class="am-tabs am-tabs-default">
-      			<ul class="am-tabs-nav am-cf">
-		          <li class="am-active"><a>大图</a></li>
-		          <li class=""><a>小图</a></li>
-		          <li class=""><a>无图</a></li>
-		     	</ul>
+				<div class="am-btn-group">
+				  <button type="button" class="am-btn am-btn-primary am-round">大图</button>
+				  <button type="button" class="am-btn am-btn-primary am-round">小图</button>
+				  <button type="button" class="am-btn am-btn-primary am-round">无图</button>
+				</div>
 		 	</div>
 		</div>
 		<div class="set4">
@@ -148,9 +148,22 @@ export default {
 .set2 .am-tabs{
 	margin: 0;
 }
-.set2 .am-tabs .am-tabs-nav{
-	background: #FFFFFF;
+.set2 .am-tabs .am-round{
+	font-size: 1.4rem;
+	width: 4rem;
+    height: 2rem;
+    line-height: 0.4rem;
+    padding: 0;
+    color: #666666;
+    text-align: center;
+    background: #ededed;
+    border: 1px solid #CCCCCC;
 }
+.set2 .am-btn-primary:focus, .am-btn-primary:hover{
+	background: #5088e7;
+	color: white;
+}
+/*
 .set2 .am-tabs .am-tabs-nav li a{
 	width: 4rem;
     height: 2rem;
@@ -169,7 +182,7 @@ export default {
 }
 .set2 .am-tabs .am-tabs-nav .am-active a{
     background: #6092e6;
-}
+}*/
 .set5{
 	text-align: left;
 	background: #FFFFFF;
