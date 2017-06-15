@@ -1,18 +1,20 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import $ from 'jquery'
+import jQuery from 'jquery'
 import Hot from './Hot'
 import Mint from 'mint-ui'
 import { Tabbar,TabItem,Header,TabContainer,TabContainerItem,Button,Swipe, SwipeItem,Checklist,Search } from 'mint-ui';
 import 'mint-ui/lib/style.css'
 import 'amazeui/dist/css/amazeui.min.css'
 import 'amazeui/dist/js/amazeui.min.js'
-import 'jquery/dist/jquery.min.js'
+
 import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import jsonp from 'jsonp'
+
+window.$=window.jQuery =jQuery;
 
 
 Vue.component(Tabbar.name, Tabbar);
