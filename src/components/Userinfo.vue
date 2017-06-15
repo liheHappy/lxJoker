@@ -63,7 +63,7 @@
 							  		<span>火山id: 1176844790</span>
 							  </div>
 							  <div class="am-u-sm-4">
-							  	<img src="./../../static/img/head3.jpg"  class="am-circle" height="58" width="58">
+							  	<img src="./../../static/img/Myhead0.jpg"  class="am-circle" height="58" width="58">
 							  	<span class="am-icon-angle-right"></span>
 							  </div>
 							</div> 
@@ -71,11 +71,11 @@
 							<ul class="am-list am-list-static am-list-border">
 						    		<li>
 						    			用户名<i class="am-icon-angle-right"></i>
-						    			<span>木子小寉鸟</span>
+						    			<span>王萌萌</span>
 						    		</li>
 						    		<li>
 						    			性别<i class="am-icon-angle-right"></i>
-						    			<span>女</span>
+						    			<span>男</span>
 						    		</li>
 							</ul>
 							<h6>个性签名</h6>
