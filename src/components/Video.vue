@@ -15,10 +15,10 @@ export default {
   		template:`
   			<div>
 					<div class="txt" v-for="items in arr">
+						<span class="hasBorder" @click="quGuan">x</span>
 							<header class="txt-header">
 								<img :src="items.avatar_url" class="am-comment-avatar" width="48" height="48">
 								<span>{{items.name}}</span>
-								<span class="hasBorder">x</span>
 							</header>
 							<p class="am-article-lead">
 								{{items.text}}
@@ -33,11 +33,13 @@ export default {
 								{{items.share_count}}</i>
 							</div>
 					</div>
+					<hx-magic v-show="show"></hx-magic>
 				</div>
 			`,
   		data(){
   			return {
-  				arr:""
+  				arr:"",
+  				show:false
   			}
   		},
   		created(){
@@ -54,6 +56,46 @@ export default {
 //	  			})
 	  		
 	  		
+  		},
+  		methods:{
+  			quGuan(event){
+				this.show=true;
+				var _this=this;
+				$(".yesNo button").click(function(){
+					_this.show=false;
+				})
+			}
+  		},
+  		components:{
+			"hx-magic":{
+				template:`
+						<div class="magic">
+							<header>选择不喜欢的理由</header>
+							<div class="moreRadio">
+								<p>
+									糗人糗事
+									<input type="checkbox">
+								</p>
+								<p>
+									吧：搞笑视频
+									<input type="checkbox">
+								</p>
+								<p>
+									内容重复
+									<input type="checkbox">
+								</p>
+								<p>
+									作者：相处的久了感情也就淡了
+									<input type="checkbox">
+								</p>
+							</div>
+							<div class="yesNo">
+								<button class="no">取消</button>
+								<button class="yes">确认</button>
+							</div>
+						</div>
+						`
+			}
   		}
   	}
   }
@@ -81,17 +123,20 @@ export default {
 	margin-right: 0.5rem;
 }
 .video .hasBorder{
+	position: absolute;
 	border: 1px solid #333;
 	color: #333333;
 	border-radius: 0.2rem;
 	font-size: 2rem;
 	height: 16px;
 	width: 16px;
-	float: right;
 	text-align: center;
 	line-height: 8px;
-	margin-top: 11px;
-	margin-right: 1rem;
+	right: 1rem;
+	top: 20px;
+}
+.video .txt{
+	position: relative;
 }
 .video .am-article-lead{
 	border: none;
@@ -111,6 +156,53 @@ export default {
 	padding:.1rem .3rem;
 	margin: .2rem .3rem;
 	font-size: .8rem;
+}
+.video .magic{
+	border-radius: 15px;
+	height: 38vh;
+	background: #fff;
+	position: fixed;
+	top: 30vh;
+	width: 80vw;
+	left: 10vw;
+}
+.video .magic header{
+	height: 6vh;
+	background: pink;
+	line-height: 6vh;
+	color: #fff;
+	text-align: center;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+.video .magic .moreRadio{
+	padding:0 1rem;
+}
+.video .magic .moreRadio p{
+	margin: 0;
+	padding: 0;
+	padding: .4rem 0;
+	font-size: 1.4rem;
+}
+.video .magic .moreRadio input{
+	float: right;
+}
+.video .magic .yesNo{
+	height: 7vh;
+	width: 100%;
+	border-top: 1px solid #eee;
+	margin-top: 1rem;
+}
+.video .magic .yesNo button{
+	height: 7vh;
+	width: 49%;
+	color: #ccc;
+	background: none;
+	border: none;
+}
+.video .magic .yesNo button:nth-child(2){
+	color: pink;
+	border-left: 1px solid #eee;
 }
 </style>
 
