@@ -77,6 +77,7 @@ export default {
   margin: 0;
   padding: 0;
 }
+input,button,select,textarea{outline:none}
 body{
   background: #eeeeee;
 }
