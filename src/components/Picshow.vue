@@ -277,7 +277,7 @@ export default {
 	height: 100vh;
 	background:#eee;
 	position: absolute;
-	z-index: 1;
+	z-index: 100;
 	overflow-x: hidden;
 	width: 100%;
   overflow-y: auto;
