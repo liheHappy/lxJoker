@@ -23,7 +23,7 @@
           </router-link>
         </mt-tab-item>
         <mt-tab-item id="tab">
-          <router-link to="/Write" class="nounder">
+          <router-link :to="path" class="nounder">
             <b class="add">+</b>
           </router-link> 
         </mt-tab-item>
@@ -50,11 +50,14 @@ export default {
   data(){
     return {
       selected:"",
-      show:true
+      show:true,
+      path:"/Field"
     }
   },
   created(){
-    
+      if(localStorage.user){
+          this.path="/Write";
+      }
   },
   methods:{
     isLocal(){
