@@ -119,6 +119,7 @@ body{
 }
 .mint-tabbar{
   position: fixed;
+  z-index: 21;
 }
 .mint-tabbar > .mint-tab-item.is-selected{
   color: #874c0d;
