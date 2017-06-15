@@ -57,16 +57,16 @@ export default {
 						  </li>
 					  </ul>
 						<div class="am-tabs-bd">
-					    <div class="am-tab-panel am-fade am-in am-active bgColor" id="tab1">
+					    <div class="am-tab-panel am-fade am-in am-active bgUrl" id="tab1">
 					      
 					    </div>
-					    <div class="am-tab-panel am-fade" id="tab2">
+					    <div class="am-tab-panel am-fade bgUrl" id="tab2">
 					      
 					    </div>
-					    <div class="am-tab-panel am-fade" id="tab3">
+					    <div class="am-tab-panel am-fade bgUrl" id="tab3">
 					      
 					    </div>
-					    <div class="am-tab-panel am-fade" id="tab4">
+					    <div class="am-tab-panel am-fade bgUrl" id="tab4">
 					      
 					    </div>
 					  </div>
@@ -202,7 +202,7 @@ export default {
 	width: 100%;
 }
 
-.am-tab-panel.am-fade{
+.my .bgUrl{
 	height: 30vh;
 	margin: 4rem 0;
 	background: url(../../static/img/login1.png) no-repeat 0 0;
