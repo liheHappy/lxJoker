@@ -286,7 +286,7 @@ export default {
 	margin-left: 1rem;
 	margin-right: 0.5rem;
 }
-.hasBorderOne{
+.textshow .hasBorderOne{
 	border: 1px solid #fe2d55;
 	color: #fe2d55;
 	float: right;
@@ -297,17 +297,19 @@ export default {
 	margin-top: .3rem;
 	border-radius: 5px;
 }
-.am-article-lead{
+.textshow .am-article-lead{
 	margin: 0;
 	color: #333333;
 	border: none;
 	background: none;
+	font-size: 1.6rem;
 }
-.neihan{
-	border: 1px solid #ccc;
-	background: #eee;
-	border-radius: 5px;
-	color: #996c33;
+.textshow .neihan{
+	border: 1px solid #6b5547;
+	white-space: nowrap;
+	background: #f5f5f5;
+	border-radius: 4px;
+	color: #6b5547;
 	padding:.1rem .3rem;
 	margin: .2rem .3rem;
 	font-size: .8rem;
@@ -386,7 +388,7 @@ export default {
 	font-size: .5rem;
 	margin-left: .5rem;
 }
-.footP{
+.textshow .footP{
 	position: fixed;
 	width: 100%;
 	background: #FFFFFF;
@@ -395,11 +397,11 @@ export default {
 	padding: 0.5rem 1% 0.5rem 1%;
 	bottom: 0;
 }
-.footP p{
+.textshow .footP p{
 	margin: 0;
 	border: 1px solid #cccccc;
 }
-.footP p span{
+.textshow .footP p span{
 	display: inline-block;
 	width: 10%;
 	height: 10%;
@@ -407,7 +409,7 @@ export default {
 	line-height: 2rem;
 	color: #cccccc;
 }
-.footP p input{
+.textshow .footP p input{
 	width: 88%;
 	height: 3rem;
 	border: none;
