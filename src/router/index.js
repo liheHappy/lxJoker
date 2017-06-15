@@ -24,6 +24,7 @@ import Userinfo from '@/components/Userinfo'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',// 服务器需要配置 
   routes: [
     {
       path: '/',
