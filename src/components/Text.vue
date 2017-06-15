@@ -145,7 +145,7 @@ export default {
 	width: 16px;
 	float: right;
 	text-align: center;
-	line-height: 0.7rem;
+	line-height: 8px;
 	margin-top: 11px;
 	margin-right: 1rem;
 }
