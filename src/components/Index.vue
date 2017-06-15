@@ -29,6 +29,11 @@ export default {
 					<router-link to="/Video"><span @click="toggleClass">视频</span></router-link>
 				</li>
 			</ul>`,
+			data(){
+				return {
+					active:true
+				}
+			},
 			methods:{
 				toggleClass:function(event){
 					if(event.target.className=="hxactive"){
@@ -39,6 +44,14 @@ export default {
 						}
 						event.target.className="hxactive";
 					}
+				}
+			},
+			created(){
+				var pathData=window.location.pathname.replace("/","");
+				if(pathData=="Video"){
+					console.log(document.querySelector(".am-nav-justify li span"))
+					//document.querySelector(".am-nav-justify li span").classList="lihe hxactive"
+
 				}
 			}
 		}
@@ -76,6 +89,8 @@ export default {
 	color: #000;
 }
 
-
+.lihe{
+	font-size: 100px;
+}
 
 </style>
