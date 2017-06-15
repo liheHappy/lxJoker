@@ -1,16 +1,18 @@
 <template>
   <div class="Picshow">
-	<!-- 头部 -->
-	<hx-show-header></hx-show-header>
-  	<!-- 信息列表 -->
-	<hx-pic-msg></hx-pic-msg>
-	<!-- 热评列表 -->
-	<hx-commenthot-list></hx-commenthot-list>
-	
-	<!-- 鲜评列表 -->
-	<hx-commentnew-list></hx-commentnew-list>
-	<!--评论-->
-	<hx-commentnew-input></hx-commentnew-input>
+		<!-- 头部 -->
+		<hx-show-header></hx-show-header>
+	  	<!-- 信息列表 -->
+		<hx-pic-msg></hx-pic-msg>
+		<!-- 热评列表 -->
+		<hx-commenthot-list></hx-commenthot-list>
+		
+		<!-- 鲜评列表 -->
+		<hx-commentnew-list></hx-commentnew-list>
+		<!--评论-->
+		<hx-commentnew-input></hx-commentnew-input>
+		<!--放大图片-->
+		
   </div>
 </template>
 
@@ -40,7 +42,7 @@ export default {
 						<p class="am-article-lead">
 							{{obj.group.text}}
 							<span class="neihan">{{obj.group.category_name}}</span>
-							<img :src="obj.group.large_image.url_list[0].url" />
+							<img :src="obj.group.large_image.url_list[0].url" @click="enlarge" />
 						</p>
 						<div>
 							<i class="am-icon-thumbs-up">	{{obj.group.digg_count}}</i>
@@ -50,11 +52,18 @@ export default {
 							{{obj.group.share_count}}</i>
 						</div>
 					</div>
+					<div class="enlarge" v-show="show">
+						<div class="black"></div>
+						<img :src="obj.group.large_image.url_list[0].url" />
+					</div>
+					<div class="guanbi" @click="closeimg" v-show="show">×</div>
 				</div>
 			`,
 		data(){
 			return {
-				obj:""
+				obj:"",
+				show:false
+				
 			}
 		},
 		created(){
@@ -65,6 +74,14 @@ export default {
 		     		this.obj=item;
 		      	}
 		    })
+			},
+			methods:{
+				enlarge(){
+					this.show = true;
+				},
+				closeimg(){
+					this.show = false;
+				},
 			}
   	},
   	"hx-show-header":{
@@ -263,6 +280,7 @@ export default {
 	z-index: 1;
 	overflow-x: hidden;
 	width: 100%;
+  overflow-y: auto;
 }
 .txt{
 	background: #fff;
@@ -386,6 +404,44 @@ export default {
 	width: 88%;
 	height: 3rem;
 	border: none;
+}
+
+/*扩大图片属性*/
+.Picshow .enlarge{
+	position: fixed;
+	width: 100%;
+	max-height: 100%;
+	z-index: 1001;
+	top: 0;
+	overflow: scroll;
+	line-height: 100vh;
+}
+.Picshow .enlarge img{
+	height: 100%;
+	width: 100%;
+	position: relative;
+	z-index: 1002;
+	top: 0;
+	bottom: 0;
+}
+.Picshow .enlarge .black{
+	position: absolute;
+	background: black;
+	width: 100%;
+	height: 100%;
+	z-index: 1001;
+}
+.Picshow .guanbi{
+	position: fixed;
+	width: 2rem;
+	height: 2rem;
+	color: white;
+	line-height: 1.6rem;
+	text-align: center;
+	font-size: 3rem;
+	right: 0;
+	top: 0;
+	z-index: 1003;
 }
 </style>
 
