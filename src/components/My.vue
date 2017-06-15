@@ -14,7 +14,7 @@
 		<!--头像组件-->
 		<hx-my-means></hx-my-means>
 		<!--选项卡组件-->
-	  <hx-my-tabbar></hx-my-tabbar>
+	  	<hx-my-tabbar></hx-my-tabbar>
 
   </div>
 </template>
@@ -79,7 +79,9 @@ export default {
 			template:`
 				<div class="am-g">
 				  	<div class="am-u-sm-4">
-				  		<a href="" class="am-icon-btn am-icon-user"></a>
+					  	<router-link to="/Userinfo">
+					  		<span class="am-icon-btn am-icon-user"></span>
+					  	</router-link>
 				  	</div>
 				  	<div class="am-u-sm-8">
 				  		<a href="" class="am-u-sm-4">
