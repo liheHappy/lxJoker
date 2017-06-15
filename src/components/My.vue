@@ -170,7 +170,7 @@ export default {
 	overflow-x: hidden;
 	height: 100vh;
 	width: 100%;
-	background: url(../../static/img/login1.png) no-repeat 0 22rem;
+	background: url(../../static/img/login1.png) no-repeat 0 25rem;
 	background-size: contain;
 }
 .my .am-g{
