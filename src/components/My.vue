@@ -142,6 +142,9 @@ export default {
 			  			<i> 获得火力：0</i>
 			  		</span>
 			  	</div>
+			  	<div class="tosign">
+			  		万水千山总是情，没有签名可不行~~
+			  	</div>
 				</div>
 			`
 		}
@@ -277,5 +280,11 @@ export default {
 .my .Myfans span i{
 	font-style: normal;
 	color: #333333;
+}
+.my .tosign{
+	border-top: 1px solid #eeeeee;
+	padding: 0.6rem 1rem 0.6rem 1rem;
+	font-size: 1.2rem;
+	color: #d5d5d5;
 }
 </style>
