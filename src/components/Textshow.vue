@@ -157,6 +157,7 @@ export default {
 		  		if(err){
 		  			console.log("数据获取失败");
 		  		}else{
+		  			
 		  			var data=res.data.top_comments;
 		  			this.arr=data;
 		  			var len=this.arr.length
