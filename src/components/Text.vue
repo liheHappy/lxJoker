@@ -2,6 +2,7 @@
 	<div class="text">
 		<!-- 段子页面 -->
 		<hx-text-list></hx-text-list>
+		
 	</div>
 </template>
 
@@ -13,6 +14,7 @@ export default {
 	components:{
 		"hx-text-list":{
 			template:`<div>
+						
 						<div class="txt" v-for="items in arr">
 							<span class="hasBorder" @click="quGuan">x</span>
 							<router-link :to="{name:'Textshow',params:{id:items.group.group_id}}">
