@@ -196,16 +196,6 @@ export default {
 .Myset .am-icon-cogs{
 	margin-left: 10px;
 }
-.my{
-	overflow-x: hidden;
-	height: 100vh;
-	width: 100%;
-<<<<<<< HEAD
-	background: url(../../static/img/login1.png) no-repeat 0 25rem;
-	background-size: contain;
-=======
->>>>>>> e7e155b2292b10d79a182eebaf07d2e59a8aee2d
-}
 
 .my .bgUrl{
 	height: 30vh;
