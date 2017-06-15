@@ -14,11 +14,11 @@ export default {
 		"hx-pic-list":{
 			template:`<div>
 					<div class="txt" v-for="items in arr">
+					<span class="hasBorder" @click="quGuan">x</span>
 					<router-link :to="{name:'Picshow',params:{id:items.group.group_id}}">
 						<header class="txt-header">
 							<img :src="items.group.user.avatar_url" class="am-comment-avatar" width="48" height="48">
 							<span>{{items.group.user.name}}</span>
-							<span class="hasBorder">x</span>
 						</header>
 						<p class="am-article-lead">
 							{{items.group.text}}
@@ -35,10 +35,12 @@ export default {
 						</router-link>
 					</div>
 					<hx-refresh @toFather="getData"></hx-refresh>
+					<hx-magic v-show="show"></hx-magic>
 				</div>`,
 		  	data(){
 		  		return {
-		  			arr:""
+		  			arr:"",
+		  			show:false
 		  		}
 		  	},
 			created(){
@@ -71,9 +73,45 @@ export default {
 					this.arr=data;
 					var refDom=document.querySelector(".am-icon-refresh");
 					refDom.className="am-icon-refresh";
+				},
+				quGuan(event){
+					this.show=true;
+					var _this=this;
+					$(".yesNo button").click(function(){
+						_this.show=false;
+					})
 				}
 			},
 			components:{
+				"hx-magic":{
+					template:`
+							<div class="magic">
+								<header>选择不喜欢的理由</header>
+								<div class="moreRadio">
+									<p>
+										糗人糗事
+										<input type="checkbox">
+									</p>
+									<p>
+										吧：搞笑视频
+										<input type="checkbox">
+									</p>
+									<p>
+										内容重复
+										<input type="checkbox">
+									</p>
+									<p>
+										作者：相处的久了感情也就淡了
+										<input type="checkbox">
+									</p>
+								</div>
+								<div class="yesNo">
+									<button class="no">取消</button>
+									<button class="yes">确认</button>
+								</div>
+							</div>
+							`
+				},
 				"hx-refresh":{
 					template:`
 						<p class="refresh" @click="goRefresh">
@@ -134,15 +172,21 @@ export default {
 	margin-left: 1rem;
 	margin-right: 0.5rem;
 }
-.hasBorder{
-	border: 1px solid #000;
+.pic .txt{
+	position: relative;
+}
+.pic .hasBorder{
+	position: absolute;
+	border: 1px solid #333;
+	color: #333333;
+	border-radius: 0.2rem;
+	font-size: 2rem;
 	height: 16px;
 	width: 16px;
-	float: right;
 	text-align: center;
-	line-height: 12px;
-	margin-top: 11px;
-	margin-right: 1rem;
+	line-height: 8px;
+	right: 1rem;
+	top: 20px;
 }
 .pic .am-article-lead{
 	margin: 0;
@@ -167,6 +211,56 @@ export default {
 .txt div i{
 	padding: .8rem;
 	color: #ccc;
+}
+.pic .txt a span{
+	color: #000;
+}
+.pic .magic{
+	border-radius: 15px;
+	height: 38vh;
+	background: #fff;
+	position: fixed;
+	top: 30vh;
+	width: 80vw;
+	left: 10vw;
+}
+.pic .magic header{
+	height: 6vh;
+	background: pink;
+	line-height: 6vh;
+	color: #fff;
+	text-align: center;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+.pic .magic .moreRadio{
+	padding:0 1rem;
+}
+.pic .magic .moreRadio p{
+	margin: 0;
+	padding: 0;
+	padding: .4rem 0;
+	font-size: 1.4rem;
+}
+.pic .magic .moreRadio input{
+	float: right;
+}
+.pic .magic .yesNo{
+	height: 7vh;
+	width: 100%;
+	border-top: 1px solid #eee;
+	margin-top: 1rem;
+}
+.pic .magic .yesNo button{
+	height: 7vh;
+	width: 49%;
+	color: #ccc;
+	background: none;
+	border: none;
+}
+.pic .magic .yesNo button:nth-child(2){
+	color: pink;
+	border-left: 1px solid #eee;
 }
 </style>
 
