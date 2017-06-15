@@ -136,7 +136,7 @@ export default {
 	margin-left: 1rem;
 	margin-right: 0.5rem;
 }
-.hasBorder{
+.txt .hasBorder{
 	border: 1px solid #333;
 	color: #333333;
 	border-radius: 0.2rem;
@@ -151,6 +151,7 @@ export default {
 }
 .text .am-article-lead{
 	border: none;
+	font-size: 1.6rem;
 	margin: 0;
 	background: none;
 	color: #333333;
