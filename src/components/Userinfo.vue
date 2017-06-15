@@ -41,6 +41,7 @@
 </template>
 
 <script>
+// console.log($("body"));
 	export default{
 		name:"Userinfo",
 		components:{
