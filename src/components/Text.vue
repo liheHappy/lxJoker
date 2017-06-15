@@ -36,11 +36,13 @@ export default {
 						</div>
 						<hx-refresh @toFather="getData"></hx-refresh>
 						<hx-magic v-show="show"></hx-magic>
+						<div class="loadImg" v-if="loadingShow"></div>
 					</div>`,
 		  	data(){
 		  		return {
 		  			arr:"",
-		  			show:false
+		  			show:false,
+		  			loadingShow:true
 		  		}
 		  	},
 			created(){
@@ -62,6 +64,7 @@ export default {
 				  			this.arr=res.data.data;
 				  			var str=JSON.stringify(res.data.data)
 				  			localStorage.textArr=str;
+				  			this.loadingShow=!this.loadingShow
 				  		}
 				  	})
 			    }
@@ -229,7 +232,7 @@ export default {
 	line-height: 2.5rem;
 	border-radius: 100%;
 	border: 2px solid #eeeeee;
-	z-index: 100;
+	z-index: 10;
 }
 .text .magic{
 	border-radius: 15px;
@@ -277,6 +280,15 @@ export default {
 .text .magic .yesNo button:nth-child(2){
 	color: pink;
 	border-left: 1px solid #eee;
+}
+.text .loadImg{
+	background: url('./../../static/img/timg.gif') no-repeat;
+	height: 100vh;
+	width: 100%;
+	background-size: 100% 100%;
+	position: fixed;
+	top: 0;
+	z-index: 20;
 }
 </style>
 
