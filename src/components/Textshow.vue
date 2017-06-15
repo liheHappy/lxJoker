@@ -35,7 +35,7 @@ export default {
 					<header class="txt-header">
 						<img :src="obj.group.user.avatar_url" class="am-comment-avatar" width="48" height="48">
 						<span>{{obj.group.user.name}}</span>
-						<span class="hasBorderOne">+加关注</span>
+						<span class="hasBorderOne">＋加关注</span>
 					</header>
 					<p class="am-article-lead">
 						{{obj.group.text}}
@@ -114,7 +114,7 @@ export default {
 						   		<time>{{ dataChange(items.create_time) }}</time>
 						      </div>
 						      <div class="zanZhuan">
-						      	<i class="am-icon-thumbs-up">{{items.digg_count}}</i>
+						      	<i class="am-icon-thumbs-up"> {{ items.digg_count}}</i>
 								<i class="am-icon-share"></i>
 						      </div>
 						    </header>
@@ -287,8 +287,8 @@ export default {
 	margin-right: 0.5rem;
 }
 .hasBorderOne{
-	border: 2px solid pink;
-	color: pink;
+	border: 1px solid #fe2d55;
+	color: #fe2d55;
 	float: right;
 	text-align: center;
 	line-height: 12px;
@@ -299,6 +299,8 @@ export default {
 }
 .am-article-lead{
 	margin: 0;
+	color: #333333;
+	border: none;
 	background: none;
 }
 .neihan{
@@ -341,10 +343,40 @@ export default {
 	margin-bottom: 38px;
 }
 .am-comment{
-	padding: 1rem .5rem;
+	padding: 0rem 0.5rem 1rem 0.5rem;
 }
-.am-comment-author{
+.textshow .list div:nth-of-type(1) .am-comment{
+	padding-top: 1rem;
+}
+.am-comment .am-comment-main{
+	position: static;
+	border: none;
+	border-bottom: 1px solid #dedede;
+}
+.am-comment .am-comment-main .am-comment-bd{
+	padding: 8px 0 8px 0;
+	line-height: 20px;
+	color: #333333;
+}
+.am-comment .am-comment-main .am-comment-hd{
+	background: #FFFFFF;
+	border: none;
+}
+.am-comment .am-comment-main .am-comment-hd .am-comment-meta{
+	padding: 0;
+	font-size: 12px;
+}
+.am-comment .am-comment-main .am-comment-hd .zanZhuan i{
+	padding: 0 5px 0 10px;
+}
+.am-comment .am-comment-main .am-comment-hd .zanZhuan .am-icon-thumbs-up:before{
+	margin-right: 6px;
+}
+.am-comment-meta .am-comment-author{
 	display: block;
+	font-size: 16px;
+	font-weight: normal;
+	color: #666666;
 }
 .list i{
 	padding: .5rem;
