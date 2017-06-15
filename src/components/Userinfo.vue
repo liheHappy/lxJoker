@@ -70,7 +70,7 @@
 							<ul class="am-list am-list-static am-list-border">
 						    		<li>
 						    			用户名<i class="am-icon-angle-right"></i>
-						    			<span>王萌萌</span>
+						    			<span>{{username}}</span>
 						    		</li>
 						    		<li>
 						    			性别<i class="am-icon-angle-right"></i>
@@ -110,7 +110,20 @@
 							  </li>
 							</ul>
 						</div>
-  						`
+  						`,
+  				data(){
+  					return {
+  						username:"你猜谁是谁"
+  					}
+  				},
+  				created(){
+  					var obj=JSON.parse(localStorage.user);
+		    		if(obj.username){
+		    			this.username=obj.username;
+		    		}else{
+		    			this.username=obj.tel;
+		    		}
+  				}
   			}
 		}
 	}
