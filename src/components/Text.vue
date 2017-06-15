@@ -2,8 +2,6 @@
 	<div class="text">
 		<!-- 段子页面 -->
 		<hx-text-list></hx-text-list>
-		<!-- 刷新标签 am-icon-spin -->
-		
 	</div>
 </template>
 
@@ -16,11 +14,12 @@ export default {
 		"hx-text-list":{
 			template:`<div>
 						<div class="txt" v-for="items in arr">
+							<span class="hasBorder" @click="quGuan">x</span>
 							<router-link :to="{name:'Textshow',params:{id:items.group.group_id}}">
 								<header class="txt-header">
 									<img :src="items.group.user.avatar_url" class="am-comment-avatar" width="48" height="48">
 									<span>{{items.group.user.name}}</span>
-									<span class="hasBorder">x</span>
+									
 								</header>
 								<p class="am-article-lead">
 									{{items.group.text}}
@@ -36,10 +35,12 @@ export default {
 							</router-link>
 						</div>
 						<hx-refresh @toFather="getData"></hx-refresh>
+						<hx-magic v-show="show"></hx-magic>
 					</div>`,
 		  	data(){
 		  		return {
-		  			arr:""
+		  			arr:"",
+		  			show:false
 		  		}
 		  	},
 			created(){
@@ -71,6 +72,14 @@ export default {
 					this.arr=data;
 					var refDom=document.querySelector(".am-icon-refresh");
 					refDom.className="am-icon-refresh";
+				},
+				quGuan(event){
+					event.stopPropagation();//阻止事件冒泡
+					this.show=true;
+					var _this=this;
+					$(".yesNo button").click(function(){
+						_this.show=false;
+					})
 				}
 			},
 			components:{
@@ -102,6 +111,35 @@ export default {
 						}
 					}
 
+				},
+				"hx-magic":{
+					template:`
+							<div class="magic">
+								<header>选择不喜欢的理由</header>
+								<div class="moreRadio">
+									<p>
+										糗人糗事
+										<input type="checkbox">
+									</p>
+									<p>
+										吧：搞笑视频
+										<input type="checkbox">
+									</p>
+									<p>
+										内容重复
+										<input type="checkbox">
+									</p>
+									<p>
+										作者：相处的久了感情也就淡了
+										<input type="checkbox">
+									</p>
+								</div>
+								<div class="yesNo">
+									<button class="no">取消</button>
+									<button class="yes">确认</button>
+								</div>
+							</div>
+							`
 				}
 			}
 		}
@@ -136,18 +174,21 @@ export default {
 	margin-left: 1rem;
 	margin-right: 0.5rem;
 }
-.txt .hasBorder{
+.text .hasBorder{
+	position: absolute;
 	border: 1px solid #333;
 	color: #333333;
 	border-radius: 0.2rem;
 	font-size: 2rem;
 	height: 16px;
 	width: 16px;
-	float: right;
 	text-align: center;
 	line-height: 8px;
-	margin-top: 11px;
-	margin-right: 1rem;
+	right: 1rem;
+	top: 20px;
+}
+.text .txt{
+	position: relative;
 }
 .text .am-article-lead{
 	border: none;
@@ -189,6 +230,53 @@ export default {
 	border-radius: 100%;
 	border: 2px solid #eeeeee;
 	z-index: 100;
+}
+.text .magic{
+	border-radius: 15px;
+	height: 38vh;
+	background: #fff;
+	position: fixed;
+	top: 30vh;
+	width: 80vw;
+	left: 10vw;
+}
+.text .magic header{
+	height: 6vh;
+	background: pink;
+	line-height: 6vh;
+	color: #fff;
+	text-align: center;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+.text .magic .moreRadio{
+	padding:0 1rem;
+}
+.text .magic .moreRadio p{
+	margin: 0;
+	padding: 0;
+	padding: .4rem 0;
+	font-size: 1.4rem;
+}
+.text .magic .moreRadio input{
+	float: right;
+}
+.text .magic .yesNo{
+	height: 7vh;
+	width: 100%;
+	border-top: 1px solid #eee;
+	margin-top: 1rem;
+}
+.text .magic .yesNo button{
+	height: 7vh;
+	width: 49%;
+	color: #ccc;
+	background: none;
+	border: none;
+}
+.text .magic .yesNo button:nth-child(2){
+	color: pink;
+	border-left: 1px solid #eee;
 }
 </style>
 
