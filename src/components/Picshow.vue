@@ -279,14 +279,14 @@ export default {
 	line-height: 40px;
 	margin-bottom: .5rem;
 }
-.txt-header img{
+.Picshow .txt-header img{
 	margin-top: 4px;
 	margin-left: 1rem;
 	margin-right: 0.5rem;
 }
-.hasBorderOne{
-	border: 2px solid pink;
-	color: pink;
+.Picshow .hasBorderOne{
+	border: 1px solid #fe2d55;
+	color: #fe2d55;
 	float: right;
 	text-align: center;
 	line-height: 12px;
@@ -295,19 +295,24 @@ export default {
 	margin-top: .3rem;
 	border-radius: 5px;
 }
-.am-article-lead{
+.Picshow .am-article-lead{
 	margin: 0;
+	font-size: 1.6rem;
+	color: #333333;
+	border: none;
 	background: none;
 	overflow-x: hidden;
 }
-.am-article-lead img{
-	width: 100vw;
+.Picshow .am-article-lead img{
+	width: 100%;
+	margin-top: 10px;
 }
-.neihan{
-	border: 1px solid #ccc;
-	background: #eee;
-	border-radius: 5px;
-	color: #996c33;
+.Picshow .neihan{
+	border: 1px solid #6b5547;
+	white-space: nowrap;
+	background: #f5f5f5;
+	border-radius: 4px;
+	color: #6b5547;
 	padding:.1rem .3rem;
 	margin: .2rem .3rem;
 	font-size: .8rem;
@@ -342,6 +347,9 @@ export default {
 .am-comment{
 	padding: 1rem .5rem;
 }
+.Picshow .list div:nth-of-type(1) .am-comment{
+	padding-top: 1rem;
+}
 .am-comment-author{
 	display: block;
 }
@@ -352,6 +360,32 @@ export default {
 .commentHot{
 	font-size: .5rem;
 	margin-left: .5rem;
+}
+.Picshow .footP{
+	position: fixed;
+	width: 100%;
+	background: #FFFFFF;
+	z-index: 1000;
+	border-top: 1px solid #e5e5e5;
+	padding: 0.5rem 1% 0.5rem 1%;
+	bottom: 0;
+}
+.Picshow .footP p{
+	margin: 0;
+	border: 1px solid #cccccc;
+}
+.Picshow .footP p span{
+	display: inline-block;
+	width: 10%;
+	height: 10%;
+	text-align: center;
+	line-height: 2rem;
+	color: #cccccc;
+}
+.Picshow .footP p input{
+	width: 88%;
+	height: 3rem;
+	border: none;
 }
 </style>
 

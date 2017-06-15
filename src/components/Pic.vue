@@ -144,15 +144,19 @@ export default {
 	margin-top: 11px;
 	margin-right: 1rem;
 }
-.am-article-lead{
+.pic .am-article-lead{
 	margin: 0;
+	font-size: 1.6rem;
+	color: #333333;
+	border: none;
 	background: none;
 }
-.neihan{
-	border: 1px solid #ccc;
-	background: #eee;
-	border-radius: 5px;
-	color: #996c33;
+.pic .neihan{
+	border: 1px solid #6b5547;
+	white-space: nowrap;
+	background: #f5f5f5;
+	border-radius: 4px;
+	color: #6b5547;
 	padding:.1rem .3rem;
 	margin: .2rem .3rem;
 	font-size: .8rem;
