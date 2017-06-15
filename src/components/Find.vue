@@ -2,21 +2,6 @@
   <div class="find">
 		<!-- 头部 -->
   		<hx-header-tab></hx-header-tab>
-		<!-- 轮播图 -->
-		<!-- <mt-swipe :auto="4000">
-		  <mt-swipe-item>
-			<img src="../assets/find1.jpg">
-		  </mt-swipe-item>
-		  <mt-swipe-item>
-		  	<img src="../assets/find2.jpg">
-		  </mt-swipe-item>
-		  <mt-swipe-item>
-			<img src="../assets/find3.jpg">
-		  </mt-swipe-item>
-		</mt-swipe> -->
-		<!--发现界面-->
-		
-		<!-- <img src="../assets/head1.jpg" /> -->
   </div>
 </template>
 
@@ -27,8 +12,9 @@ export default {
   name: 'Find',
   components:{
   	"hx-header-tab":{
-  		template:`<div class="am-tabs " data-am-tabs>
-				  <ul class="am-tabs-nav am-nav am-nav-tabs">
+  		template:`
+  			<div class="am-tabs " data-am-tabs>
+				<ul class="am-tabs-nav am-nav am-nav-tabs">
 				  	<router-link to="/Search">
 				  		<span class="am-icon-search"></span>
 				  	</router-link>
@@ -57,9 +43,9 @@ export default {
 				    </div>
 				    <div class="am-tab-panel" id="tab2">
 						
-				    </div>
-				  </div>
-				</div>`,
+			        </div>
+			    </div>
+			</div>`,
 		components:{
 			"hx-find-list":{
 		  		template:`
