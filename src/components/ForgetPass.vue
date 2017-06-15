@@ -37,7 +37,9 @@ export default {
 				<div>
 				  <div class="logininput forgetTop">
 				    <mt-field label="+86" type="tel"></mt-field>
-				    <mt-button size="large" type="danger">下一步</mt-button>
+				    <router-link to="/My">
+				    	<mt-button size="large" type="danger">下一步</mt-button>
+					</router-link>
 				  </div>
 				</div>
 			`
