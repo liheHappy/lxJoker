@@ -73,13 +73,7 @@ export default {
 					</div>
 				</div>`,
 			created(){
-				//background: url(../../static/img/login1.png) no-repeat 0 22rem;
-				// $(".am-tab-panel.am-fade").css({
-				// 	"background":"url(../../static/img/jie3.png) no-repeat 0 0"
-				// })
-				// console.log(document.querySelector(".bgColor"))
-				// document.querySelector(".bgColor").style.background="red"
-	
+					console.log(document.querySelector(".bgUrl"))
 			},
 			methods:{
 				toggleClass:function(event){
