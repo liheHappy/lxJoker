@@ -2,7 +2,7 @@
   <div class="my">
 		<mt-header>
 		  <mt-button slot="right">
-		  	<router-link class="Myset" :to="path">
+		  	<router-link class="Recharge" to="/Recharge">
 		  		<span class="am-icon am-icon-shopping-bag"></span>
 		  	</router-link>
 		  	<router-link class="Myset" to="/Set">
@@ -186,11 +186,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 /*登录前CSS样式*/
-.Myset{
+.Myset,.Recharge{
 	color: #7e7c78;
 	font-weight: normal;
 }
-.Myset .am-icon{
+.my .mint-button-text a .am-icon{
 	font-size: 20px;
 }
 .Myset .am-icon-cogs{
