@@ -30,13 +30,13 @@ export default {
 				    <div class="am-tab-panel am-active" id="tab1">
 				    <mt-swipe :auto="4000">
 						  <mt-swipe-item>
-							<img src="./static/img/find1.jpg">
+							<img src="./../dist/static/img/find1.jpg">
 						  </mt-swipe-item>
 						  <mt-swipe-item>
-						  	<img src="./static/img/find2.jpg">
+						  	<img src="./../dist/static/img/find2.jpg">
 						  </mt-swipe-item>
 						  <mt-swipe-item>
-							<img src="./static/img/find3.jpg">
+							<img src="./../dist/static/img/find3.jpg">
 						  </mt-swipe-item>
 						</mt-swipe>
 				    	<hx-find-list></hx-find-list>
@@ -69,7 +69,9 @@ export default {
 					}
 				},
 				created(){
-					Vue.axios.get("../static/json/find.json").then((res)=>{
+					// ../static/json/find.json
+					// ./dist/static/json/find.json
+					Vue.axios.get("../dist/static/json/find.json").then((res)=>{
 						//console.log(res.data.head)
 						return res.data.head;
 					}).then((data)=>{
