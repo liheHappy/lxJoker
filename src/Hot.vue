@@ -83,6 +83,7 @@ body{
 }
 #hot{
   height: 100vh;
+  background: #EEEEEE;
 }
 .view{
   overflow: auto;
