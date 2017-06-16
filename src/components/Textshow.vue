@@ -6,10 +6,8 @@
 	<hx-text-msg></hx-text-msg>
 	<!-- 热评列表 -->
 	<hx-commenthot-list></hx-commenthot-list>
-	
 	<!-- 鲜评列表 -->
 	<hx-commentnew-list></hx-commentnew-list>
-	
 	<!--评论标签-->
 	<hx-commentnew-input></hx-commentnew-input>
   </div>
@@ -95,9 +93,15 @@ export default {
 					<p>
 						<span class="am-icon-pencil"></span>
 						<input type="text" placeholder="期待你的神评论" />
+						<button>发送</button>
 					</p>
 				</div>
-  		`
+  		`,
+  		methods:{
+  			handComment(){
+
+  			}
+  		}
   	},
   	"hx-commenthot-list":{
   		template:`<div class="list">
