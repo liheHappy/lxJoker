@@ -122,26 +122,11 @@ body{
   color: #493d32;
 }
 .mint-tabbar{
-  position: fixed;
+  position: fixed!important;
   z-index: 21;
 }
 .mint-tabbar > .mint-tab-item.is-selected{
   color: #874c0d;
   background: none;
 }
-/* #loading{
-  background: url('./../static/img/index.png') no-repeat;
-  background-size: 100% 100%;
-  position: absolute;
-  height: 100vh;
-  width: 100%;
-  z-index: 1000;
-} */
-
-/* .mint-cell-swipe .mint-cell-wrapper, .mint-cell-swipe .mint-cell-left, .mint-cell-swipe .mint-cell-right {
-    -webkit-transition: -webkit-transform 1000ms ease-in-out;
-    transition: -webkit-transform 1000ms ease-in-out;
-    transition: transform 1000ms ease-in-out;
-    transition: transform 1000ms ease-in-out, -webkit-transform 1000ms ease-in-out;
-} */
 </style>
