@@ -63,6 +63,7 @@ export default {
 				  		if(err){
 				  			console.log("数据获取失败");
 				  		}else{
+				  			console.log("数据获取成功")
 				  			this.arr=res.data.data;
 				  			var str=JSON.stringify(res.data.data)
 				  			localStorage.textArr=str;
