@@ -38,11 +38,18 @@ export default{
 				    	<mt-button size="large" type="danger" @click="nextStep">下一步</mt-button>
 				    </router-link>
 				  </div>
+				  <div class="registerFalse" v-show="show">
+					<p>{{ msg }}</p>
+					<button type="button" @click="registerData" class="am-btn am-btn-warning am-radius">确定</button>
+				  </div>
+				  <div class="registerBlack" v-show="show"></div>
 				</div>
 			`,
 			data(){
 				return {
-					path:""
+					path:"",
+					show:false,
+					msg:""
 				}
 			},
 			methods:{
@@ -54,11 +61,16 @@ export default{
 							localStorage.registerTel='{"tel":'+tel+'}';
 							this.path="/Setpass";
 						}else{
-							alert("输入合理的手机号")
+							this.show=true;
+							this.msg="输入合理的手机号";
 						}
 					}else{
-						alert("账号和密码不能为空");
+						this.show=true;
+						this.msg="账号和密码不能为空";
 					}
+				},
+				registerData(){
+					this.show=false;
 				}
 			}
 		}
@@ -88,5 +100,32 @@ export default{
 	background: #efeeee;
 	width: 100%;
 	z-index: 10;
+}
+
+/*输入错误*/
+.register .registerFalse{
+	background: #FFFFFF;
+	border-radius: 1rem;
+	position: absolute;
+	z-index: 1010;
+	top: 40%;
+	left: 10%;
+	width: 80%;
+	height: 20%;
+	text-align: center;
+	padding-top: 1rem;
+}
+.register .registerFalse .am-btn{
+	width: 80%;
+}
+.register .registerBlack{
+	background: black;
+	top: 0;
+	left: 0;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	z-index: 1005;
+	opacity: 0.7;
 }
 </style>
