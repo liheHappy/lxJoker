@@ -63,7 +63,11 @@ export default new Router({
     {
       path: '/My',
       name: 'My',
-      component: My
+      component: My,
+      beforeEnter:(to,from,next)=>{
+        console.log(document.querySelector(".bgUrl"))
+        next();
+      }
     },
     {
       path: '/Write',
