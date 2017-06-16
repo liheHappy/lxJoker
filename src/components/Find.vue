@@ -102,7 +102,7 @@ export default {
 }
 .am-tabs-bd{
 	border: none;
-	z-index: -1;
+	z-index: 1;
 	padding-top: 44px;
 }
 .am-tabs-nav.am-nav.am-nav-tabs{
