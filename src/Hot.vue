@@ -81,6 +81,9 @@ input,button,select,textarea{outline:none}
 body{
   background: #eeeeee;
 }
+#hot{
+  height: 100vh;
+}
 .view{
   overflow: auto;
 }
