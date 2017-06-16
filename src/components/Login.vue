@@ -3,7 +3,6 @@
   <div class="login am-animation-slide-right">
   	<hx-Login-header></hx-Login-header>
   	<hx-Login-input></hx-Login-input>
-
   </div>
 </template>
 
@@ -12,7 +11,7 @@ export default {
   	name: 'Login',
   	data () {
     	return {
-    	
+    		
     	}
   	},
 	components:{
@@ -49,11 +48,18 @@ export default {
 				    </router-link>
 				    <router-link class="forget" to="/ForgetPass">忘记密码</router-link>
 				  </div>
+				  <div class="loginFalse" v-show="show">
+					<p>{{ msg }}</p>
+					<button type="button" @click="loginData" class="am-btn am-btn-warning am-radius">确定</button>
+				  </div>
+				  <div class="loginBlack" v-show="show"></div>
 				</div>
 			`,
 			data(){
 				return {
-					path:""
+					path:"",
+					show:false,
+					msg:""
 				}
 			},
 			methods:{
@@ -73,14 +79,20 @@ export default {
 										}
 										localStorage.user=JSON.stringify(obj);
 								}else{
-									alert("请输入合理的密码");
+									this.show=true;
+									this.msg="请输入合理的密码";
 								}
 						}else{
-							alert("输入合理的手机号")
+							this.show=true;
+							this.msg="输入合理的手机号";
 						}
 					}else{
-						alert("账号和密码不能为空");
+						this.show=true;
+						this.msg="账号和密码不能为空";
 					}
+				},
+				loginData(){
+					this.show=false;
 				}
 			}
 		}
@@ -143,5 +155,32 @@ export default {
 }
 .mint-field-core{
 	color: #000;
+}
+
+/*输入错误*/
+.login .loginFalse{
+	background: #FFFFFF;
+	border-radius: 1rem;
+	position: absolute;
+	z-index: 1010;
+	top: 40%;
+	left: 10%;
+	width: 80%;
+	height: 20%;
+	text-align: center;
+	padding-top: 1rem;
+}
+.login .loginFalse .am-btn{
+	width: 80%;
+}
+.login .loginBlack{
+	background: black;
+	top: 0;
+	left: 0;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	z-index: 1005;
+	opacity: 0.7;
 }
 </style>
