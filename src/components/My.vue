@@ -185,6 +185,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
+.my .mint-header{
+	background-color: #dcd9cf!important;
+}
 /*登录前CSS样式*/
 .Myset,.Recharge{
 	color: #7e7c78;
