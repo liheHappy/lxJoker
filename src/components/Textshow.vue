@@ -3,7 +3,9 @@
 	<!-- 头部 -->
 	<hx-show-header></hx-show-header>
   	<!-- 信息列表 -->
-	<hx-text-msg></hx-text-msg>
+  	<hx-text-msg></hx-text-msg>
+  	<!-- 自己添加的评论 -->
+  	<hx-my-comment></hx-my-comment>
 	<!-- 热评列表 -->
 	<hx-commenthot-list></hx-commenthot-list>
 	<!-- 鲜评列表 -->
@@ -16,6 +18,7 @@
 <script>
 import Vue from 'vue'
 import jsonp from 'jsonp'
+var bus=new Vue();
 export default {
   name: 'Textshow',
   data(){
@@ -92,17 +95,88 @@ export default {
 				<div class="footP">
 					<p>
 						<span class="am-icon-pencil"></span>
-						<input type="text" placeholder="期待你的神评论" />
-						<button>发送</button>
+						<input type="text" placeholder="期待你的神评论" @click="showButton" />
 					</p>
+						<button v-show="show" class="am-btn am-btn-success" @click="handComment">发送</button>
 				</div>
   		`,
+  		data(){
+  			return {
+  				show:false,
+  				arr:""
+  			}
+  		},
   		methods:{
+  			showButton(){
+				this.show=true;
+  			},
   			handComment(){
-
+  				var v=document.querySelector("input[type=text]").value;
+  				var obj={
+  					name:"匿名",
+  					time:"未知",
+  					value:v,
+  					img:"./../../static/img/Myhead0.jpg"
+  				}
+  				var arr=[];
+  				arr.push(obj);
+  				if(this.arr==""){	
+  					this.arr=arr;
+  				}else{
+  					var col=Array.prototype.slice.call(this.arr);
+  					this.arr=col.concat(arr);
+  				}
+  				arr=Array.prototype.slice.call(this.arr);
+  				bus.$emit("toFather",arr);
+  				this.show=false;
   			}
   		}
   	},
+  	"hx-my-comment":{
+		template:`
+			<div class="list">
+  				<span class="commentHot" v-if="show">我的评论( {{num}} )</span>
+		  		<div v-for="items in arr">
+					<article class="am-comment">
+					  <a href="#link-to-user-home">
+					    <img :src="items.img" alt="" class="am-comment-avatar" width="48" height="48"/>
+					  </a>
+					  <div class="am-comment-main">
+					    <header class="am-comment-hd">
+					      <div class="am-comment-meta">
+					        <a href="#link-to-user" class="am-comment-author">{{items.name}}</a>
+					   		<time>{{items.time}}</time>
+					      </div>
+					      <div class="zanZhuan">
+					      	<i class="am-icon-thumbs-up">0</i>
+							<i class="am-icon-share">0</i>
+					      </div>
+					    </header>
+					    <div class="am-comment-bd">
+					    	{{items.value}}
+					    </div>
+					  </div>
+					</article>
+				</div>
+			</div>
+				`,
+		created(){
+			bus.$on("toFather",function(data){
+				this.arr=data;
+				var len=data.length;
+				if(len>0){
+					this.show=true;
+				}
+			}.bind(this))
+		},
+		data(){
+			return {
+				arr:"",
+				num:0,
+				show:false
+			}
+		}
+	},
   	"hx-commenthot-list":{
   		template:`<div class="list">
 	  				<span class="commentHot" v-if="show">热门评论( {{num}} )</span>
@@ -135,7 +209,7 @@ export default {
   			return {
   				arr:"",
   				num:"",
-  				show:true
+  				show:false
   			}
   		},
   		methods:{
@@ -167,19 +241,10 @@ export default {
 		  			var len=this.arr.length
 		  			if(len!=0){
 		  				this.num=len;
-		  			}else{
-		  				this.show=false;
+		  				this.show=true;
 		  			}
 		  		}
 		  	})
-
-		  	//本地获取
-		  	// Vue.axios.get("../static/json/comment.json").then((res)=>{
-		   //    return res.data.data.top_comments;
-		   //  }).then((data)=>{
-		   //    this.arr=data;
-		   //    this.num=this.arr.length;
-		   //  })
   		}
   	},
   	"hx-commentnew-list":{
@@ -213,7 +278,7 @@ export default {
   			return {
   				arr:"",
   				num:"",
-  				show:true
+  				show:false
   			}
   		},
   		methods:{
@@ -243,19 +308,10 @@ export default {
 		  			var len=this.arr.length
 		  			if(len!=0){
 		  				this.num=len;
-		  			}else{
-		  				this.show=false;
+		  				this.show=true;
 		  			}
 		  		}
 		  	})
-
-		  	//获取本地模拟json数据
-		  	// Vue.axios.get("../static/json/comment.json").then((res)=>{
-		   	//    return res.data.data.recent_comments;
-		   	//  }).then((data)=>{
-		   	//    this.arr=data;
-		   	//    this.num=this.arr.length;
-		   	//  })
   		}
   	}
   }
@@ -270,6 +326,7 @@ export default {
 	z-index: 100;
 	overflow-x: hidden;
 	width: 100%;
+	padding-bottom: 50px;
 }
 .txt{
 	background: #fff;
@@ -398,9 +455,15 @@ export default {
 	width: 100%;
 	background: #FFFFFF;
 	z-index: 1000;
-	border-top: 1px solid #e5e5e5;
 	padding: 0.5rem 1% 0.5rem 1%;
 	bottom: 0;
+}
+.textshow .footP p{
+	border-top: 1px solid #e5e5e5;
+}
+.textshow .footP .am-btn.am-btn-success{
+	float: right;
+	margin-right: .1.8rem;
 }
 .textshow .footP p{
 	margin: 0;
