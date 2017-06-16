@@ -49,11 +49,11 @@ export default {
 			created(){
 				var pathData=window.location.pathname.replace("/","");
 				if(pathData=="Video"){
-					console.log(document.querySelector(".am-nav-justify li span"))
-					//document.querySelector(".am-nav-justify li span").classList="lihe hxactive"
-
+					// console.log(document.querySelector(".am-nav-justify li span"))
+					// document.querySelector(".am-nav-justify li span").classList.add("lihe hxactive")
 				}
-			}
+			},
+			 
 		}
 	}
 }
