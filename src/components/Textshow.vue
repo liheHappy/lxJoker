@@ -112,6 +112,7 @@ export default {
   			},
   			handComment(){
   				var v=document.querySelector("input[type=text]").value;
+  				document.querySelector("input[type=text]").value="";
   				var obj={
   					name:"匿名",
   					time:"未知",
