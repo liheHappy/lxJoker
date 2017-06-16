@@ -57,6 +57,7 @@ export default {
 			    if(localStorage.textData){
 					var arr=JSON.parse(localStorage.textData);
 					this.arr=arr;
+					this.loadingShow=!this.loadingShow
 			    }else{
 			    	var url="http://m.neihanshequ.com/?is_json=1&app_name=neihanshequ_web&min_time=1497066604&csrfmiddlewaretoken=a66e8d138afdb05562b9c00dc6bca50b";
 				  	jsonp(url,null,(err,res)=>{
