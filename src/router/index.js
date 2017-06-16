@@ -44,7 +44,10 @@ export default new Router({
         {
           path: '/Video',
           name: 'Video',
-          component: Video
+          component: Video,
+           beforeEnter: (to, from, next) => {
+               document.querySelector(".am-nav-justify").style.background ="#f00"
+            }
         }
       ]
     },
