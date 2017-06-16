@@ -31,7 +31,6 @@ export default new Router({
       path: '/',
       name: 'Index',
       component: Index,
-      redirect:{name:"Index"},
       children:[
         {
           path: '/',
@@ -63,11 +62,7 @@ export default new Router({
     {
       path: '/My',
       name: 'My',
-      component: My,
-      beforeEnter:(to,from,next)=>{
-        console.log(document.querySelector(".bgUrl"))
-        next();
-      }
+      component: My
     },
     {
       path: '/Write',
