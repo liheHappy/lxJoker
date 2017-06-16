@@ -20,6 +20,7 @@ import Setpass from '@/components/Setpass'
 import Setnickname from '@/components/Setnickname'
 import Search from '@/components/Search'
 import Userinfo from '@/components/Userinfo'
+import Recharge from '@/components/Recharge'
 
 Vue.use(Router)
 
@@ -130,6 +131,11 @@ export default new Router({
       path: '/Userinfo',
       name: 'Userinfo',
       component: Userinfo
+    },
+    {
+      path: '/Recharge',
+      name: 'Recharge',
+      component: Recharge
     }
   ]
 })
