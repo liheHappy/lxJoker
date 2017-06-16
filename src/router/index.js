@@ -31,6 +31,7 @@ export default new Router({
       path: '/',
       name: 'Index',
       component: Index,
+      redirect:{name:"Index"},
       children:[
         {
           path: '/',
@@ -45,10 +46,7 @@ export default new Router({
         {
           path: '/Video',
           name: 'Video',
-          component: Video,
-           beforeEnter: (to, from, next) => {
-               document.querySelector(".am-nav-justify").style.background ="#f00"
-            }
+          component: Video
         }
       ]
     },
