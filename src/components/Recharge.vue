@@ -40,7 +40,42 @@
 					<i>赠送10钻石（首充特惠）</i>
 					<button type="button" class="am-btn am-btn-warning am-round">￥1</button>
 				</li>
+				<li>
+					<span class="am-icon-diamond"></span>
+					<span>60</span>
+					<button type="button" class="am-btn am-btn-warning am-round">￥1</button>
+				</li>
+				<li>
+					<span class="am-icon-diamond"></span>
+					<span>300</span>
+					<button type="button" class="am-btn am-btn-warning am-round">￥30</button>
+				</li>
+				<li>
+					<span class="am-icon-diamond"></span>
+					<span>980</span>
+					<button type="button" class="am-btn am-btn-warning am-round">￥98</button>
+				</li>
+				<li>
+					<span class="am-icon-diamond"></span>
+					<span>2980</span>
+					<button type="button" class="am-btn am-btn-warning am-round">￥298</button>
+				</li>
+				<li>
+					<span class="am-icon-diamond"></span>
+					<span>5880</span>
+					<button type="button" class="am-btn am-btn-warning am-round">￥588</button>
+				</li>
+				<li>
+					<span class="am-icon-diamond"></span>
+					<span>15980</span>
+					<i>赠送388钻石</i>
+					<button type="button" class="am-btn am-btn-warning am-round">￥1598</button>
+				</li>
 			</ul>
+			<p>
+				<span>火山小提示：</span>
+				<span>你的火山ID为131661112，搜索支付宝服务号“火山星球”也可以充值购买钻石哦~</span>
+			</p>
 		</div>
   </div>
 </template>
@@ -169,6 +204,12 @@ export default {
 	background: #f6f6f6;
 	color: #999999;
 }
+.recharge .money p:nth-of-type(2){
+	padding: 1rem 0.6rem 3rem 0.6rem;
+}
+.recharge .money p span{
+	display: block;
+}
 .recharge .money ul{
 	padding: 0;
 	margin: 0;
@@ -183,6 +224,7 @@ export default {
 .recharge .money ul li i{
 	font-style: normal;
 	color: #ffd630;
+	width: 5rem;
 	margin-left: 4.6rem;
 	font-size: 1rem;
 }
@@ -193,7 +235,12 @@ export default {
 	color: #2e82ce;
 }
 .recharge .money ul li .am-btn{
-	padding: 0.2rem 2rem 0.2rem 2rem;
+	padding: 0.2rem 0 0.2rem 0;
+	width: 6rem;
+	float: right;
+	background: #FFFFFF;
+	border: 1px solid #ffd630;
+	color: #ffd630;
 }
 </style>
 
